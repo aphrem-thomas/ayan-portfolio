@@ -61,18 +61,7 @@ export default function Home() {
       }
     };
   }, []);
-  // Add a standard designer font (e.g., Inter) via a global style
-  useEffect(() => {
-    const fontLink = document.createElement("link");
-    fontLink.rel = "stylesheet";
-    fontLink.href =
-      "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap";
-    document.head.appendChild(fontLink);
-    return () => {
-      document.head.removeChild(fontLink);
-    };
-  }, []);
-
+  
   return (
     <div
       className="h-screen w-screen flex justify-center relative"
@@ -143,10 +132,11 @@ export default function Home() {
           className="profileContainer h-full w-full flex flex-col items-center justify-center p-16 gap-8"
           style={{
             borderRadius: "32px",
-            background: "linear-gradient(135deg, rgba(255,255,255,0.1) 60%, rgba(220,255,240,0.08) 100%)",
-            border: "1.5px solid rgba(255,255,255,0.32)",
-            backdropFilter: "blur(24px) saturate(180%)",
-            WebkitBackdropFilter: "blur(24px) saturate(180%)",
+            border: "1.5px solid rgba(255,255,255,0.25)",
+            boxShadow: "0 4px 32px 0 rgba(60,220,135,0.10)",
+            background: "rgba(255,255,255,0.10)",
+            backdropFilter: "blur(5px) saturate(180%)",
+            WebkitBackdropFilter: "blur(5px) saturate(180%)",
             borderWidth: "1.5px",
             transition: "box-shadow 0.3s",
           }}
@@ -183,47 +173,47 @@ export default function Home() {
           </div>
           <div className="infoSection flex flex-col items-center gap-1 mb-4">
             <p
-              className="text-xl mb-3 text-black/80"
+              className="text-xl mb-3"
               style={{ letterSpacing: "0.05em", textShadow: "0 1px 8px rgba(60,220,135,0.08)" }}
             >
               ayaan.asish@gmail.com
             </p>
-            <p style={{ letterSpacing: "0.05em" }} className="text-2xl text-black/80">Student at WCSS, Ottawa</p>
+            <p style={{ letterSpacing: "0.05em" }} className="text-2xl">Student at WCSS, Ottawa</p>
             <div className="mt-4 flex items-center gap-4 text-white/50">
               <a
                 href="https://github.com/ayaan"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full bg-white/30 p-2 border border-white/30 shadow-sm hover:bg-white/50 transition"
+                className=""
                 style={{
                   backdropFilter: "blur(6px)",
                   WebkitBackdropFilter: "blur(6px)",
                 }}
               >
                 <Image
-                  src="/github.svg"
+                  src="/github.png"
                   alt="GitHub"
                   width={28}
                   height={28}
-                  style={{ filter: "invert(100%) opacity(0.7)" }}
+                  style={{ filter: "opacity(0.7)" }}
                 />
               </a>
               <a
                 href="https://linkedin.com/in/ayaan"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full bg-white/30 p-2 border border-white/30 shadow-sm hover:bg-white/50 transition"
+                className=""
                 style={{
                   backdropFilter: "blur(6px)",
                   WebkitBackdropFilter: "blur(6px)",
                 }}
               >
                 <Image
-                  style={{ filter: "invert(100%) opacity(0.7)" }}
+                  style={{ filter: "opacity(0.7)" }}
                   src="/linkedin.svg"
                   alt="LinkedIn"
-                  width={36}
-                  height={36}
+                  width={45}
+                  height={45}
                 />
               </a>
             </div>
