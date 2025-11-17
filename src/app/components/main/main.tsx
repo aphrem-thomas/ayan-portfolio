@@ -9,12 +9,13 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
     return (
         <div
           ref={containerRef}
-          className="p-8 w-full overflow-y-auto mr-[100px] scrollbar-hide"
+          className="p-8 w-full overflow-y-auto mr-[100px] scrollbar-hide mt-[100vh] md:mt-0"
           style={{
             scrollBehavior: "smooth",
             msOverflowStyle: "none", // IE and Edge
             scrollbarWidth: "none", // Firefox
             fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif",
+            zIndex:99,
           }}
         >
           {/* Home Section */}

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Button from "@mui/material/Button";
 import { useEffect, useRef, useState } from "react";
 import Main from "./components/main/main";
+import DecoBG from "./components/DecoBG/decoBg";
 
 export default function Home() {
   const sectionIds = [
@@ -21,14 +22,25 @@ export default function Home() {
   ];
 
   const [activeSection, setActiveSection] = useState<string>("home");
+  const [scrollPixels, setScrollPixels] = useState<number>(0);
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
+
+  const topContainerHandleScroll = (e: Event) => {
+    const container = topContainerRef.current;
+    const scrollDistance = container ? container.scrollTop : window.scrollY;
+    console.log("scroll", scrollDistance);
+    setScrollPixels(scrollDistance);
+  }
 
   const handleScroll = () => {
     let found = false;
+    const container = sectionRefs.current;
+    const scrollDistance = container ? container.scrollTop : window.scrollY;
+    console.log("scroll in handleScroll", scrollDistance);
     for (const id of sectionIds) {
       const section = sectionRefs.current[id];
       if (section) {
-        const rect = section.getBoundingClientRect();
+         const rect = section.getBoundingClientRect();
         if (
           rect.top <= window.innerHeight &&
           rect.bottom >= window.innerHeight
@@ -45,6 +57,7 @@ export default function Home() {
   };
 
   const mainContentRef = useRef<HTMLDivElement>(null);
+  const topContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     sectionIds.forEach((id) => {
@@ -55,81 +68,33 @@ export default function Home() {
       mainContent.addEventListener("scroll", handleScroll, { passive: true });
     }
 
+    const topContainer = topContainerRef.current;
+    if (topContainer) {
+      topContainer.addEventListener("scroll", topContainerHandleScroll, { passive: true });
+    }
+
     return () => {
       if (mainContent) {
         mainContent.removeEventListener("scroll", handleScroll);
+      }
+      if (topContainer) {
+        topContainer.removeEventListener("scroll", topContainerHandleScroll);
       }
     };
   }, []);
   
   return (
     <div
-      className="h-screen w-screen flex justify-center relative"
+      className="h-screen w-screen flex justify-center relative overflow-y-auto"
       style={{ fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif" }}
+       ref={topContainerRef}
     >
-      {/* Decorative Background */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-      {/* Top Left Gradient Blob */}
-      <div
-        style={{
-        position: "absolute",
-        top: "-120px",
-        left: "-120px",
-        width: "400px",
-        height: "400px",
-        background: "radial-gradient(circle at 30% 30%, #60cc87 0%, transparent 70%)",
-        opacity: 0.35,
-        filter: "blur(40px)",
-        zIndex: 0,
-        }}
-      />
-      {/* Bottom Right Gradient Blob */}
-      <div
-        style={{
-        position: "absolute",
-        bottom: "-120px",
-        right: "-120px",
-        width: "400px",
-        height: "400px",
-        background: "radial-gradient(circle at 70% 70%, #60cc87 0%, transparent 70%)",
-        opacity: 0.25,
-        filter: "blur(40px)",
-        zIndex: 0,
-        }}
-      />
-      {/* Center Faint Grid */}
-      <svg
-        width="100%"
-        height="100%"
-        className="absolute inset-0"
-        style={{ opacity: 0.13, zIndex: 0 }}
-      >
-        <defs>
-            <pattern
-          id="modernGrid"
-          width="64"
-          height="64"
-          patternUnits="userSpaceOnUse"
-            >
-          {/* Thin grid lines */}
-          <path
-            d="M 64 0 L 0 0 0 64"
-            fill="none"
-            stroke="#2d2d2d"
-            strokeWidth="1"
-          />
-          {/* Dots at intersections */}
-          <circle cx="0" cy="0" r="8" fill="#60cc87" opacity="0.5" />
-            </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#modernGrid)" />
-      </svg>
-      </div>
-      <div className="main-container grid grid-cols-[5fr_9fr_1fr] 2xl:grid-cols-[4fr_9fr_1fr] h-screen 2xl:max-w-[80%] w-full">
+      <DecoBG />
+      <div className="main-container md:grid md:grid-cols-[5fr_9fr_1fr] 2xl:grid-cols-[4fr_9fr_1fr] md:h-screen 2xl:max-w-[80%] w-full">
       {/* Left Profile Section */}
-      <div className="text-[#d1d1d1] p-8 h-screen flex flex-col items-center">
-        <div
-          className="profileContainer h-full w-full flex flex-col items-center justify-center p-16 gap-8"
+      <div className="text-[#d1d1d1] md:p-8 md:h-screen flex flex-col items-center fixed z-[-1] md:relative">
+          <div
+          className="profileContainer   w-full flex flex-col items-center justify-center p-16 gap-8"
           style={{
             borderRadius: "32px",
             border: "1.5px solid rgba(255,255,255,0.25)",
@@ -138,6 +103,7 @@ export default function Home() {
             backdropFilter: "blur(5px) saturate(180%)",
             WebkitBackdropFilter: "blur(5px) saturate(180%)",
             borderWidth: "1.5px",
+            height: `calc(100vh - ${Math.max(0, scrollPixels)}px)`,
             transition: "box-shadow 0.3s",
           }}
         >
@@ -151,10 +117,10 @@ export default function Home() {
             <div
               className="titleSection ml-4 px-4 py-2 mt-4 rounded-full text-sm font-semibold bg-white/40 shadow-sm border border-white/30"
               style={{
-                letterSpacing: "0.05em",
-                fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif",
-                backdropFilter: "blur(8px)",
-                WebkitBackdropFilter: "blur(8px)",
+          letterSpacing: "0.05em",
+          fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
               }}
             >
               Aerospace <br /> enthusiast
@@ -165,9 +131,9 @@ export default function Home() {
               src="/ayaan_port.JPG"
               className="w-[180px] h-[180px] 2xl:w-[320px] 2xl:h-[320px] object-cover rounded-full border-4 border-white/60 shadow-lg"
               style={{
-                boxShadow: "0 4px 24px 0 rgba(60, 220, 135, 0.10)",
-                background: "rgba(255,255,255,0.18)",
-                backdropFilter: "blur(4px)",
+          boxShadow: "0 4px 24px 0 rgba(60, 220, 135, 0.10)",
+          background: "rgba(255,255,255,0.18)",
+          backdropFilter: "blur(4px)",
               }}
             />
           </div>
@@ -181,40 +147,40 @@ export default function Home() {
             <p style={{ letterSpacing: "0.05em" }} className="text-2xl">Student at WCSS, Ottawa</p>
             <div className="mt-4 flex items-center gap-4 text-white/50">
               <a
-                href="https://github.com/ayaan"
-                target="_blank"
-                rel="noopener noreferrer"
-                className=""
-                style={{
-                  backdropFilter: "blur(6px)",
-                  WebkitBackdropFilter: "blur(6px)",
-                }}
+          href="https://github.com/ayaan"
+          target="_blank"
+          rel="noopener noreferrer"
+          className=""
+          style={{
+            backdropFilter: "blur(6px)",
+            WebkitBackdropFilter: "blur(6px)",
+          }}
               >
-                <Image
-                  src="/github.png"
-                  alt="GitHub"
-                  width={28}
-                  height={28}
-                  style={{ filter: "opacity(0.7)" }}
-                />
+          <Image
+            src="/github.png"
+            alt="GitHub"
+            width={28}
+            height={28}
+            style={{ filter: "opacity(0.7)" }}
+          />
               </a>
               <a
-                href="https://linkedin.com/in/ayaan"
-                target="_blank"
-                rel="noopener noreferrer"
-                className=""
-                style={{
-                  backdropFilter: "blur(6px)",
-                  WebkitBackdropFilter: "blur(6px)",
-                }}
+          href="https://linkedin.com/in/ayaan"
+          target="_blank"
+          rel="noopener noreferrer"
+          className=""
+          style={{
+            backdropFilter: "blur(6px)",
+            WebkitBackdropFilter: "blur(6px)",
+          }}
               >
-                <Image
-                  style={{ filter: "opacity(0.7)" }}
-                  src="/linkedin.svg"
-                  alt="LinkedIn"
-                  width={45}
-                  height={45}
-                />
+          <Image
+            style={{ filter: "opacity(0.7)" }}
+            src="/linkedin.svg"
+            alt="LinkedIn"
+            width={45}
+            height={45}
+          />
               </a>
             </div>
           </div>
@@ -222,21 +188,21 @@ export default function Home() {
             <Button
               variant="contained"
               sx={{
-                background: "linear-gradient(90deg, #60cc87 60%, #b6ffe2 100%)",
-                color: "#1c1c1c",
-                border: "1.5px solid #60cc87",
-                "&:hover": {
-                  background: "rgba(255,255,255,0.18)",
-                  color: "#60cc87",
-                  border: "1.5px solid #60cc87",
-                },
-                width: "100%",
-                fontWeight: "bold",
-                fontSize: "1.2rem",
-                borderRadius: "30px",
-                fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif",
-                boxShadow: "0 2px 12px 0 rgba(60,220,135,0.12)",
-                transition: "background 0.3s, color 0.3s",
+          background: "linear-gradient(90deg, #60cc87 60%, #b6ffe2 100%)",
+          color: "#1c1c1c",
+          border: "1.5px solid #60cc87",
+          "&:hover": {
+            background: "rgba(255,255,255,0.18)",
+            color: "#60cc87",
+            border: "1.5px solid #60cc87",
+          },
+          width: "100%",
+          fontWeight: "bold",
+          fontSize: "1.2rem",
+          borderRadius: "30px",
+          fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif",
+          boxShadow: "0 2px 12px 0 rgba(60,220,135,0.12)",
+          transition: "background 0.3s, color 0.3s",
               }}
               disableElevation
             >
