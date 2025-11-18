@@ -9,7 +9,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
     return (
         <div
           ref={containerRef}
-          className="p-8 w-full overflow-y-auto mr-[100px] scrollbar-hide mt-[100vh] md:mt-0"
+          className="md:p-8 w-full overflow-y-auto mr-[100px] scrollbar-hide mt-[110vh] md:mt-0"
           style={{
             scrollBehavior: "smooth",
             msOverflowStyle: "none", // IE and Edge
@@ -21,7 +21,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
           {/* Home Section */}
             <section
               id="home"
-              className="mb-8 flex flex-col justify-center items-start px-12 rounded-2xl shadow-lg"
+              className="md:mb-8 flex flex-col justify-center items-start px-12 md:rounded-2xl shadow-lg"
               style={{
                 height: "calc(100vh - 4rem)",
                 background: "linear-gradient(90deg, rgba(35,37,38,0.7) 0%, rgba(65,67,69,0.7) 100%)",
@@ -72,7 +72,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
           {/* About Me Section */}
             <section
             id="about"
-            className="mb-8 flex flex-col justify-center items-start px-12 bg-[#232526] rounded-2xl shadow-lg"
+            className="md:mb-8 flex flex-col justify-center items-start px-12 bg-[#232526] md:rounded-2xl shadow-lg"
             style={{ height: "calc(100vh - 4rem)" }}
             >
             <h2 className="text-4xl font-bold text-[#60cc87] mb-4">About Me</h2>
@@ -90,7 +90,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
           {/* Projects Section */}
             <section
             id="projects"
-            className="mb-8 flex flex-col justify-center items-start px-12 bg-gradient-to-br from-[#232526] to-[#414345] rounded-2xl shadow-lg"
+            className="md:mb-8 flex flex-col justify-center items-start px-12 bg-gradient-to-br from-[#232526] to-[#414345] md:rounded-2xl shadow-lg"
             style={{ height: "calc(100vh - 4rem)" }}
             >
             <h2 className="text-4xl font-bold text-[#60cc87] mb-4">Projects</h2>
@@ -116,7 +116,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
           {/* Achievements Section */}
           <section
             id="achievements"
-            className="mb-8 flex flex-col justify-center items-start px-12 bg-[#232526] rounded-2xl shadow-lg"
+            className="md:mb-8 flex flex-col justify-center items-start px-12 bg-[#232526] md:rounded-2xl shadow-lg"
              style={{ height: "calc(100vh - 4rem)" }}
           >
             <h2 className="text-4xl font-bold text-[#60cc87] mb-4">Achievements</h2>
@@ -139,7 +139,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
           {/* Experience Section */}
           <section
             id="experience"
-            className="mb-8 flex flex-col justify-center items-start px-12 bg-gradient-to-br from-[#232526] to-[#414345] rounded-2xl shadow-lg"
+            className="md:mb-8 flex flex-col justify-center items-start px-12 bg-gradient-to-br from-[#232526] to-[#414345] md:rounded-2xl shadow-lg"
              style={{ height: "calc(100vh - 4rem)" }}
           >
             <h2 className="text-4xl font-bold text-[#60cc87] mb-4">Experience</h2>

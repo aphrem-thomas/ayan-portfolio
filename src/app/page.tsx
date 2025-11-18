@@ -46,7 +46,7 @@ export default function Home() {
   const topContainerHandleScroll = (e: Event) => {
     const container = topContainerRef.current;
     const scrollDistance = container ? container.scrollTop : window.scrollY;
-    const newHeight = Math.max(initialWindowHeight - scrollDistance, 200);
+    const newHeight = Math.max(initialWindowHeight - scrollDistance, 60);
     console.log("newHeight, initialWindowHeight", newHeight, initialWindowHeight);
     setWindowHeight(newHeight);
   }
