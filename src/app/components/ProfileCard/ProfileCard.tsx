@@ -32,7 +32,7 @@ const ProfileCard = ({ windowHeight=null }: { windowHeight: any }) => {
             }}
         >
             <div
-                className={`profileContainer w-[90%] rounded-[24px] md:w-full ${
+                className={`profileContainer  rounded-[24px] w-full ${
                     isCompact ? "flex-row items-center justify-between px-4 py-2" : "flex flex-col items-center justify-center p-8 gap-6"
                 }`}
                 style={{
@@ -49,6 +49,7 @@ const ProfileCard = ({ windowHeight=null }: { windowHeight: any }) => {
                     WebkitBackdropFilter: "blur(5px) saturate(180%)",
                     borderWidth: "1.5px",
                     height:isCompact ? "" : "calc(100vh - 60px)",
+                    width:isCompact ? "90%" : "100%",
                 }}
             >
                 {/* COMPACT HORIZONTAL LAYOUT (image - name - button) */}
