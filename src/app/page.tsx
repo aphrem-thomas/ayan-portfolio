@@ -117,7 +117,7 @@ export default function Home() {
       <ProfileCard windowHeight={windowHeight} />
       <Main containerRef={mainContentRef}/>
       {/* Navigation Section (least space) */}
-      <div className="flex items-center justify-center h-screen">
+      <div className="hidden md:flex items-center justify-center h-screen">
         <div className="flex flex-col gap-6  w-[60px] py-8 px-2 z-20 rounded-4xl border border-white/50 items-center justify-center" style={{ borderWidth: "0.5px" }}>
         {navLinks.map((link) => (
           <a
