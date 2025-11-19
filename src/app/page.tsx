@@ -23,6 +23,8 @@ export default function Home() {
     { id: "experience", title: "Experience" },
   ];
 
+  const heightOffset = 80;
+
 
   const [activeSection, setActiveSection] = useState<string>("home");
   const [initialWindowHeight, setInitialWindowHeight] = useState<number>(
@@ -33,7 +35,7 @@ export default function Home() {
   useEffect(() => {
     const handleResize = () => {
       setInitialWindowHeight(window.innerHeight);
-      setWindowHeight(window.innerHeight);
+      setWindowHeight(window.innerHeight - heightOffset);
     };
     // initialize
     handleResize();
@@ -45,9 +47,10 @@ export default function Home() {
 
   const topContainerHandleScroll = (e: Event) => {
     const container = topContainerRef.current;
-    const scrollDistance = container ? container.scrollTop : window.scrollY;
-    const newHeight = Math.max(initialWindowHeight - scrollDistance, 60);
-    console.log("newHeight, initialWindowHeight", newHeight, initialWindowHeight);
+    let scrollDistance = container ? container.scrollTop : window.scrollY;
+    scrollDistance = Math.max(scrollDistance, 0);
+    console.log("scrollDistance::::", scrollDistance);
+    const newHeight = Math.max(initialWindowHeight - scrollDistance - heightOffset, 60);
     setWindowHeight(newHeight);
   }
 
