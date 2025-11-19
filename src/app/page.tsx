@@ -50,7 +50,7 @@ export default function Home() {
     let scrollDistance = container ? container.scrollTop : window.scrollY;
     scrollDistance = Math.max(scrollDistance, 0);
     console.log("scrollDistance::::", scrollDistance);
-    const newHeight = Math.max(initialWindowHeight - scrollDistance - heightOffset, 60);
+    const newHeight = Math.max((initialWindowHeight - scrollDistance) - heightOffset, 60);
     setWindowHeight(newHeight);
   }
 

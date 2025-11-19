@@ -9,7 +9,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
     return (
         <div
           ref={containerRef}
-          className="md:p-8 w-full overflow-y-auto mr-[100px] scrollbar-hide mt-[110vh] md:mt-0"
+          className="md:p-8 w-full overflow-y-auto mr-[100px] scrollbar-hide"
           style={{
             scrollBehavior: "smooth",
             msOverflowStyle: "none", // IE and Edge

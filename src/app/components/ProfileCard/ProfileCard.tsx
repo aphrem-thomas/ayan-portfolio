@@ -27,9 +27,14 @@ const ProfileCard = ({ windowHeight=null }: { windowHeight: any }) => {
     const isSubCompact = h && h < (maxH / 2) && h > compactThreshold; // midpoint height
 
     return (
-        <div className="text-[#d1d1d1] w-full p-8 md:h-screen flex flex-col items-center fixed md:relative"
+        <div className="text-[#d1d1d1] w-full p-8 md:h-screen flex flex-col items-center md:relative"
             style={{
                 zIndex: windowHeight < 150 ? 10 : -1,
+                position: isCompact ? "fixed" : "relative",
+                transition: "transform 700ms cubic-bezier(.2,.9,.35,1), box-shadow 300ms ease",
+                transform: isCompact ? "translateY(-20px)" : "translateY(0)",
+                animation: isCompact ? "profile-bounce 2000ms ease-in-out infinite" : undefined,
+                WebkitAnimation: isCompact ? "profile-bounce 2000ms ease-in-out infinite" : undefined,
             }}
         >
             <div
@@ -43,7 +48,7 @@ const ProfileCard = ({ windowHeight=null }: { windowHeight: any }) => {
                     backdropFilter: "blur(5px) saturate(180%)",
                     WebkitBackdropFilter: "blur(5px) saturate(180%)",
                     borderWidth: "1.5px",
-                    height: !windowHeight ? "100vh" : `${windowHeight}px`,
+                    height:isCompact ? "" : "calc(100vh - 60px)",
                 }}
             >
                 {/* COMPACT HORIZONTAL LAYOUT (image - name - button) */}
@@ -102,7 +107,7 @@ const ProfileCard = ({ windowHeight=null }: { windowHeight: any }) => {
                         </div>
                     </>
                 )} 
-                { isFullSize &&(
+                { !isCompact &&(
                     /* TALL / REGULAR VERTICAL LAYOUT */
                     <>
                         <div className="name_heading flex justify-between w-full items-center">
@@ -128,8 +133,8 @@ const ProfileCard = ({ windowHeight=null }: { windowHeight: any }) => {
                                 src="/ayaan_port.JPG"
                                 className="object-cover rounded-full border-4 border-white/60 shadow-lg"
                                 style={{
-                                    width: imgSize,
-                                    height: imgSize,
+                                    width: imgMax,
+                                    height: imgMax,
                                     boxShadow: "0 4px 24px 0 rgba(60, 220, 135, 0.10)",
                                     background: "rgba(255,255,255,0.18)",
                                     backdropFilter: "blur(4px)",
@@ -191,78 +196,6 @@ const ProfileCard = ({ windowHeight=null }: { windowHeight: any }) => {
                             </Button>
                         </div>
                     </>
-                )}
-                {
-                    /* SUB-COMPACT MIDWAY LAYOUT (image - name - button stacked) */
-                isSubCompact && (
-                    <div className="flex flex-col items-center gap-4">
-                        <div className="imageAndName flex items-center gap-2">
-                        <img
-                            src="/ayaan_port.JPG"
-                            alt="Ayaan"
-                            style={{
-                                width: imgSize,
-                                height: imgSize,
-                                objectFit: "cover",
-                                borderRadius: "9999px",
-                                border: "3px solid rgba(255,255,255,0.6)",
-                                boxShadow: "0 4px 20px rgba(60,220,135,0.08)",
-                                background: "rgba(255,255,255,0.12)",
-                            }}
-                        />
-                        <div
-                            className="font-extrabold text-4xl"
-                            style={{
-                                fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif",
-                                
-                            }}
-                        >
-                            Ayaan
-                            <br/>
-                            <span
-                                className="text-sm font-semibold  px-3 py-1 rounded-full mt-2 inline-block"
-                                style={{
-                                    letterSpacing: "0.05em",
-                                    fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif",
-                                    backdropFilter: "blur(8px)",
-                                    WebkitBackdropFilter: "blur(8px)",
-                                }}
-                            >
-                                Aerospace enthusiast
-                            </span>
-                        </div>
-                        </div>
-                        <div className="infoSection flex flex-col items-center gap-1 mb-4">
-                            <p
-                                className="text-xl mb-3"
-                                style={{ letterSpacing: "0.05em", textShadow: "0 1px 8px rgba(60,220,135,0.08)" }}
-                            >
-                                ayaan.asish@gmail.com
-                            </p>
-                        </div>
-                        <Button
-                            variant="contained"
-                            sx={{
-                                background: "linear-gradient(90deg, #60cc87 60%, #b6ffe2 100%)",
-                                color: "#1c1c1c",
-                                border: "1.5px solid #60cc87",
-                                "&:hover": {
-                                    background: "rgba(255,255,255,0.18)",
-                                    color: "#60cc87",
-                                    border: "1.5px solid #60cc87",
-                                },
-                                width: "auto",
-                                minWidth: "88px",
-                                fontWeight: "bold",
-                                fontSize: "0.9rem",
-                                borderRadius: "24px",
-                                boxShadow: "0 2px 12px 0 rgba(60,220,135,0.12)",
-                            }}
-                            disableElevation
-                        >
-                            Let's Connect
-                        </Button>
-                    </div>
                 )}
             </div>
         </div>
