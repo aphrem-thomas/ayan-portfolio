@@ -27,21 +27,21 @@ const ProfileCard = ({ windowHeight=null }: { windowHeight: any }) => {
     const isSubCompact = h && h < (maxH / 2) && h > compactThreshold; // midpoint height
 
     return (
-        <div className="text-[#d1d1d1] w-full p-8 md:h-screen flex flex-col items-center md:relative"
+        <div className="text-[#d1d1d1] w-full p-8 h-screen flex flex-col items-center md:relative"
             style={{
-                zIndex: windowHeight < 150 ? 10 : -1,
-                position: isCompact ? "fixed" : "relative",
-                transition: "transform 700ms cubic-bezier(.2,.9,.35,1), box-shadow 300ms ease",
-                transform: isCompact ? "translateY(-20px)" : "translateY(0)",
-                animation: isCompact ? "profile-bounce 2000ms ease-in-out infinite" : undefined,
-                WebkitAnimation: isCompact ? "profile-bounce 2000ms ease-in-out infinite" : undefined,
             }}
         >
             <div
-                className={`profileContainer rounded-[24px] w-full ${
+                className={`profileContainer w-[90%] rounded-[24px] md:w-full ${
                     isCompact ? "flex-row items-center justify-between px-4 py-2" : "flex flex-col items-center justify-center p-8 gap-6"
                 }`}
                 style={{
+                    zIndex: windowHeight < 150 ? 10 : -1,
+                    position: isCompact ? "fixed" : "relative",
+                    transition: "transform 700ms cubic-bezier(.2,.9,.35,1), box-shadow 300ms ease",
+                    transform: isCompact ? "translateY(-20px)" : "translateY(0)",
+                    animation: isCompact ? "profile-bounce 2000ms ease-in-out infinite" : undefined,
+                    WebkitAnimation: isCompact ? "profile-bounce 2000ms ease-in-out infinite" : undefined,
                     border: "1.5px solid rgba(255,255,255,0.25)",
                     boxShadow: "0 4px 32px 0 rgba(60,220,135,0.10)",
                     background: "rgba(255,255,255,0.10)",
