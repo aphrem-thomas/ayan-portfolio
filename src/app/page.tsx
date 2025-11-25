@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import Main from "./components/main/main";
 import DecoBG from "./components/DecoBG/decoBg";
 import ProfileCard from "./components/ProfileCard/ProfileCard";
+import NavBar from "./components/NavBar/NavBar";
 
 export default function Home() {
   const sectionIds = [
@@ -31,6 +32,7 @@ export default function Home() {
     typeof window !== "undefined" ? window.innerHeight : 0
   );
   const [windowHeight, setWindowHeight] = useState<number>(0);
+  const [isScrolledDoubleHeight, setIsScrolledDoubleHeight] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -46,12 +48,18 @@ export default function Home() {
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
 
   const topContainerHandleScroll = (e: Event) => {
+    handleScroll();
     const container = topContainerRef.current;
     let scrollDistance = container ? container.scrollTop : window.scrollY;
     scrollDistance = Math.max(scrollDistance, 0);
-    console.log("scrollDistance::::", scrollDistance);
+    // console.log("scrollDistance::::", scrollDistance);
     const newHeight = Math.max((initialWindowHeight - scrollDistance) - heightOffset, 60);
     setWindowHeight(newHeight);
+    if (scrollDistance > 2*initialWindowHeight) {
+      setIsScrolledDoubleHeight(true);
+    } else {
+      setIsScrolledDoubleHeight(false);
+    }
   }
 
   const handleScroll = () => {
@@ -108,113 +116,20 @@ export default function Home() {
   return (
     <div
       className="h-screen w-screen flex justify-center relative overflow-y-auto"
-      style={{ fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif" }}
-       ref={topContainerRef}
+      style={{ fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif", scrollBehavior: "smooth" }}
+      ref={topContainerRef}
     >
       <DecoBG />
       <div className="main-container md:grid md:grid-cols-[5fr_9fr_1fr] 2xl:grid-cols-[4fr_9fr_1fr] md:h-screen 2xl:max-w-[80%] w-full">
       {/* Left Profile Section */}
-      <ProfileCard windowHeight={windowHeight} />
+      <ProfileCard windowHeight={windowHeight} isScrolledDoubleHeight={isScrolledDoubleHeight}/>
       <Main containerRef={mainContentRef}/>
       {/* Navigation Section (least space) */}
-      <div className="hidden md:flex items-center justify-center h-screen">
-        <div className="flex flex-col gap-6  w-[60px] py-8 px-2 z-20 rounded-4xl border border-white/50 items-center justify-center" style={{ borderWidth: "0.5px" }}>
-        {navLinks.map((link) => (
-          <a
-          key={link.id}
-          href={`#${link.id}`}
-          title={link.title}
-          onClick={(e) => {
-            setActiveSection(link.id);
-          }}
-          className={`flex items-center justify-center transition-colors duration-200 ${
-            activeSection === link.id
-            ? "text-[#60cc87]"
-            : "text-white bg-transparent"
-          }`}
-          style={{ fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif" }}
-          >
-          {link.id === "home" && (
-            <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
-            <path
-              d="M3 10.5L12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-5h-6v5H4a1 1 0 0 1-1-1V10.5z"
-              stroke={activeSection === link.id ? "#60cc87" : "#fff"}
-              strokeWidth="1"
-              strokeLinejoin="round"
-            />
-            </svg>
-          )}
-          {link.id === "about" && (
-            <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
-            <circle
-              cx="12"
-              cy="8"
-              r="4"
-              stroke={activeSection === link.id ? "#60cc87" : "#fff"}
-              strokeWidth="1"
-            />
-            <path
-              d="M4 20c0-4 4-7 8-7s8 3 8 7"
-              stroke={activeSection === link.id ? "#60cc87" : "#fff"}
-              strokeWidth="1"
-            />
-            </svg>
-          )}
-          {link.id === "projects" && (
-            <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
-            <rect
-              x="3"
-              y="7"
-              width="18"
-              height="13"
-              rx="2"
-              stroke={activeSection === link.id ? "#60cc87" : "#fff"}
-              strokeWidth="1"
-            />
-            <path
-              d="M16 3v4M8 3v4"
-              stroke={activeSection === link.id ? "#60cc87" : "#fff"}
-              strokeWidth="1"
-            />
-            </svg>
-          )}
-          {link.id === "achievements" && (
-            <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
-            <circle
-              cx="12"
-              cy="8"
-              r="5"
-              stroke={activeSection === link.id ? "#60cc87" : "#fff"}
-              strokeWidth="1"
-            />
-            <path
-              d="M12 13v7M9 20h6"
-              stroke={activeSection === link.id ? "#60cc87" : "#fff"}
-              strokeWidth="1"
-            />
-            </svg>
-          )}
-          {link.id === "experience" && (
-            <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
-            <rect
-              x="3"
-              y="7"
-              width="18"
-              height="13"
-              rx="2"
-              stroke={activeSection === link.id ? "#60cc87" : "#fff"}
-              strokeWidth="1"
-            />
-            <path
-              d="M16 3v4M8 3v4M9 13h6"
-              stroke={activeSection === link.id ? "#60cc87" : "#fff"}
-              strokeWidth="1"
-            />
-            </svg>
-          )}
-          </a>
-        ))}
-        </div>
+      {isScrolledDoubleHeight && <div className="md:hidden">
+        <NavBar activeSection={activeSection} setActiveSection={setActiveSection}/>
+      </div>}
+      <div className="hidden md:flex">
+        <NavBar activeSection={activeSection} setActiveSection={setActiveSection}/>
       </div>
       </div>
     </div>

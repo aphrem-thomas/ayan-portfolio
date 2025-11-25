@@ -1,15 +1,20 @@
 import Image from "next/image";
 import Button from "@mui/material/Button";
 
-const ProfileCard = ({ windowHeight=null }: { windowHeight: any }) => {
+const ProfileCard = ({ windowHeight=null, isScrolledDoubleHeight=false }: { windowHeight: any, isScrolledDoubleHeight: boolean }) => {
     const minH = 60;
     const maxH = typeof window !== "undefined" ? window.innerHeight : 800;
-    const h =
-        typeof windowHeight === "number"
-            ? windowHeight === 0? typeof window !== "undefined" ? window.innerHeight : 800 : windowHeight
-            : typeof window !== "undefined"
-            ? window.innerHeight
-            : 800;
+    const calculateHeight = (windowHeight: any): number => {
+        if (typeof windowHeight === "number" && windowHeight !== 0) {
+            return windowHeight;
+        }
+        if (typeof window !== "undefined") {
+            return window.innerHeight;
+        }
+        return 800;
+    };
+
+    const h = calculateHeight(windowHeight);
     // clamp height for calculations
     const clampedH = Math.max(minH, Math.min(h, maxH));
     // normalized [0..1]
@@ -39,7 +44,7 @@ const ProfileCard = ({ windowHeight=null }: { windowHeight: any }) => {
                     zIndex: windowHeight < 150 ? 10 : -1,
                     position: isCompact ? "fixed" : "relative",
                     transition: "transform 700ms cubic-bezier(.2,.9,.35,1), box-shadow 300ms ease",
-                    transform: isCompact ? "translateY(-20px)" : "translateY(0)",
+                    transform: isCompact ? isScrolledDoubleHeight ? "translateY(-120px)" : "translateY(-20px)" : "translateY(0)",
                     animation: isCompact ? "profile-bounce 2000ms ease-in-out infinite" : undefined,
                     WebkitAnimation: isCompact ? "profile-bounce 2000ms ease-in-out infinite" : undefined,
                     border: "1.5px solid rgba(255,255,255,0.25)",
