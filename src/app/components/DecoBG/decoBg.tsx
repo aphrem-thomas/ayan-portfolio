@@ -14,7 +14,7 @@ type DecoBGProps = {
  */
 const DecoBG: React.FC<DecoBGProps> = () => {
     return (
-      <div className="fixed inset-0 -z-10 overflow-hidden w-full">
+      <div className="fixed inset-0 -z-10 overflow-hidden w-full bg-[#0a0a0a]">
       {/* Top Left Gradient Blob */}
       <div
         style={{
@@ -51,22 +51,22 @@ const DecoBG: React.FC<DecoBGProps> = () => {
         style={{ opacity: 0.13, zIndex: 0 }}
       >
         <defs>
-            <pattern
+        <pattern
           id="modernGrid"
           width="64"
           height="64"
           patternUnits="userSpaceOnUse"
-            >
+        >
           {/* Thin grid lines */}
           <path
-            d="M 64 0 L 0 0 0 64"
-            fill="none"
-            stroke="#2d2d2d"
-            strokeWidth="1"
+        d="M 64 0 L 0 0 0 64"
+        fill="none"
+        stroke="#2d2d2d"
+        strokeWidth="1"
           />
           {/* Dots at intersections */}
           <circle cx="0" cy="0" r="8" fill="#60cc87" opacity="0.5" />
-            </pattern>
+        </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#modernGrid)" />
       </svg>
