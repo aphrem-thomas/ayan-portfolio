@@ -120,8 +120,8 @@ export default function Home() {
       <div className="main-container md:grid md:grid-cols-[5fr_9fr_1fr] 2xl:grid-cols-[4fr_9fr_1fr] 2xl:max-w-[80%] w-full">
       {/* Left Profile Section */}
       <ProfileCard windowHeight={windowHeight} isScrolledDoubleHeight={isScrolledDoubleHeight}/>
-      {/* <Main containerRef={mainContentRef}/> */}
-      <Main/>
+      <Main containerRef={mainContentRef}/>
+      {/* <Main/> */}
       {/* Navigation Section (least space) */}
       {/* {isScrolledDoubleHeight && <div className="md:hidden">
         <NavBar activeSection={activeSection} setActiveSection={setActiveSection}/>
