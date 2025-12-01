@@ -32,7 +32,7 @@ const ProfileCard = ({ windowHeight=null, isScrolledDoubleHeight=false }: { wind
     const isSubCompact = h && h < (maxH / 2) && h > compactThreshold; // midpoint height
 
     return (
-        <div className="text-[#d1d1d1] w-full p-8 h-screen flex flex-col items-center md:relative"
+        <div className="text-[#d1d1d1] w-full p-8 h-dvh flex flex-col items-center md:relative"
             style={{
             }}
         >

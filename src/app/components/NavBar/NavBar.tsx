@@ -9,7 +9,7 @@ const NavBar: React.FC<{activeSection: string, setActiveSection: React.Dispatch<
     { id: "experience", title: "Experience" },
   ];
     return (
-       <div className="fixed bottom-10 left-1/2 -translate-x-1/2 md:relative md:flex md:items-center md:justify-center md:h-screen">
+       <div className="fixed bottom-10 left-1/2 -translate-x-1/2 md:relative md:flex md:items-center md:justify-center md:h-dvh">
         <div className="flex md:flex-col gap-6 p-4  md:w-[60px] md:py-8 md:px-2 z-20 rounded-4xl border border-white/50 items-center justify-center" style={{ 
           borderWidth: "0.5px",
           transition: "transform 700ms cubic-bezier(.2,.9,.35,1), box-shadow 300ms ease",
