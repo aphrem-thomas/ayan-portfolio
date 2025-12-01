@@ -116,18 +116,18 @@ export default function Home() {
       style={{ fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif", scrollBehavior: "smooth", height: "var(--app-height)" }}
       ref={topContainerRef}
     >
-      <DecoBG />
+      {/* <DecoBG /> */}
       <div className="main-container md:grid md:grid-cols-[5fr_9fr_1fr] 2xl:grid-cols-[4fr_9fr_1fr] 2xl:max-w-[80%] w-full" style={{ height: "var(--app-height)" }}>
       {/* Left Profile Section */}
       {/* <ProfileCard windowHeight={windowHeight} isScrolledDoubleHeight={isScrolledDoubleHeight}/> */}
       <Main containerRef={mainContentRef}/>
       {/* Navigation Section (least space) */}
-      {isScrolledDoubleHeight && <div className="md:hidden">
+      {/* {isScrolledDoubleHeight && <div className="md:hidden">
         <NavBar activeSection={activeSection} setActiveSection={setActiveSection}/>
       </div>}
       <div className="hidden md:flex">
         <NavBar activeSection={activeSection} setActiveSection={setActiveSection}/>
-      </div>
+      </div> */}
       </div>
     </div>
   );
