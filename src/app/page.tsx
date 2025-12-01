@@ -1,7 +1,4 @@
 'use client';
-
-import Image from "next/image";
-import Button from "@mui/material/Button";
 import { useEffect, useRef, useState } from "react";
 import Main from "./components/main/main";
 import DecoBG from "./components/DecoBG/decoBg";
@@ -122,7 +119,7 @@ export default function Home() {
       <DecoBG />
       <div className="main-container md:grid md:grid-cols-[5fr_9fr_1fr] 2xl:grid-cols-[4fr_9fr_1fr] 2xl:max-w-[80%] w-full" style={{ height: "var(--app-height)" }}>
       {/* Left Profile Section */}
-      <ProfileCard windowHeight={windowHeight} isScrolledDoubleHeight={isScrolledDoubleHeight}/>
+      {/* <ProfileCard windowHeight={windowHeight} isScrolledDoubleHeight={isScrolledDoubleHeight}/> */}
       <Main containerRef={mainContentRef}/>
       {/* Navigation Section (least space) */}
       {isScrolledDoubleHeight && <div className="md:hidden">
