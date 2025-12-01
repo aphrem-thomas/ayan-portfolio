@@ -5,9 +5,10 @@ interface MainProps {
   containerRef: RefObject<HTMLDivElement | null>;
 }
 
-const Main: React.FC = () => {
+const Main: React.FC<MainProps> = ({containerRef}) => {
     return (
         <div
+          ref={containerRef}
           className="md:p-8 w-full overflow-y-auto mr-[100px] scrollbar-hide"
           style={{
             scrollBehavior: "smooth",
