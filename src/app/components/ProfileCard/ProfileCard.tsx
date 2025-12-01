@@ -32,8 +32,9 @@ const ProfileCard = ({ windowHeight=null, isScrolledDoubleHeight=false }: { wind
     const isSubCompact = h && h < (maxH / 2) && h > compactThreshold; // midpoint height
 
     return (
-        <div className="text-[#d1d1d1] w-full p-8 h-lvh flex flex-col items-center md:relative"
+        <div className="text-[#d1d1d1] w-full p-8 flex flex-col items-center md:relative"
             style={{
+                height: "var(--app-height)",
             }}
         >
             <div
@@ -53,7 +54,7 @@ const ProfileCard = ({ windowHeight=null, isScrolledDoubleHeight=false }: { wind
                     backdropFilter: "blur(5px) saturate(180%)",
                     WebkitBackdropFilter: "blur(5px) saturate(180%)",
                     borderWidth: "1.5px",
-                    height:isCompact ? "" : "calc(100vh - 60px)",
+                    height:isCompact ? "" : "calc(var(--app-height) - 60px)",
                     width:isCompact ? "90%" : "100%",
                 }}
             >

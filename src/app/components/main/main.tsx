@@ -21,7 +21,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
           {/* Home Section */}
             <section
               id="home"
-              className="md:mb-8 flex flex-col justify-center items-start px-12 md:rounded-2xl shadow-lg h-lvh md:h-[calc(100vh-4rem)]"
+              className="section-height md:mb-8 flex flex-col justify-center items-start px-12 md:rounded-2xl shadow-lg"
               style={{
               background: "linear-gradient(90deg, rgba(35,37,38,0.7) 0%, rgba(65,67,69,0.7) 100%)",
               backdropFilter: "blur(12px)",
@@ -71,7 +71,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
           {/* About Me Section */}
             <section
             id="about"
-            className="md:mb-8 flex flex-col justify-center items-start px-12 bg-[#232526] md:rounded-2xl shadow-lg h-lvh md:h-[calc(100vh-4rem)]"
+            className="section-height md:mb-8 flex flex-col justify-center items-start px-12 bg-[#232526] md:rounded-2xl shadow-lg"
             >
             <h2 className="text-4xl font-bold text-[#60cc87] mb-4">About Me</h2>
             <p className="text-white text-lg mb-4 max-w-xl">
@@ -88,7 +88,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
           {/* Projects Section */}
             <section
             id="projects"
-            className="md:mb-8 flex flex-col justify-center items-start px-12 bg-gradient-to-br from-[#232526] to-[#414345] md:rounded-2xl shadow-lg h-lvh md:h-[calc(100vh-4rem)]"
+            className="section-height md:mb-8 flex flex-col justify-center items-start px-12 bg-gradient-to-br from-[#232526] to-[#414345] md:rounded-2xl shadow-lg"
             >
             <h2 className="text-4xl font-bold text-[#60cc87] mb-4">Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -113,7 +113,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
           {/* Achievements Section */}
           <section
             id="achievements"
-            className="md:mb-8 flex flex-col justify-center items-start px-12 bg-[#232526] md:rounded-2xl shadow-lg h-lvh md:h-[calc(100vh-4rem)]"
+            className="section-height md:mb-8 flex flex-col justify-center items-start px-12 bg-[#232526] md:rounded-2xl shadow-lg"
           >
             <h2 className="text-4xl font-bold text-[#60cc87] mb-4">Achievements</h2>
             <ul className="list-disc pl-6 text-white text-lg">
@@ -135,7 +135,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
           {/* Experience Section */}
           <section
             id="experience"
-            className="md:mb-8 flex flex-col justify-center items-start px-12 bg-gradient-to-br from-[#232526] to-[#414345] md:rounded-2xl shadow-lg h-lvh md:h-[calc(100vh-4rem)]"
+            className="section-height md:mb-8 flex flex-col justify-center items-start px-12 bg-gradient-to-br from-[#232526] to-[#414345] md:rounded-2xl shadow-lg"
           >
             <h2 className="text-4xl font-bold text-[#60cc87] mb-4">Experience</h2>
             <div className="space-y-6">
