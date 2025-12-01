@@ -110,26 +110,36 @@ export default function Home() {
   //   };
   // }, []);
   
+  // return (
+  //   <div
+  //     className="w-screen flex justify-center relative overflow-y-auto"
+  //     style={{ fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif", scrollBehavior: "smooth", height: "var(--app-height)" }}
+      
+  //   >
+  //     {/* <DecoBG /> */}
+  //     <div className="main-container md:grid md:grid-cols-[5fr_9fr_1fr] 2xl:grid-cols-[4fr_9fr_1fr] 2xl:max-w-[80%] w-full" style={{ height: "var(--app-height)" }}>
+  //     {/* Left Profile Section */}
+  //     {/* <ProfileCard windowHeight={windowHeight} isScrolledDoubleHeight={isScrolledDoubleHeight}/> */}
+  //     {/* <Main containerRef={mainContentRef}/> */}
+  //     <Main/>
+  //     {/* Navigation Section (least space) */}
+  //     {/* {isScrolledDoubleHeight && <div className="md:hidden">
+  //       <NavBar activeSection={activeSection} setActiveSection={setActiveSection}/>
+  //     </div>}
+  //     <div className="hidden md:flex">
+  //       <NavBar activeSection={activeSection} setActiveSection={setActiveSection}/>
+  //     </div> */}
+  //     </div>
+  //   </div>
+  // );
   return (
     <div
-      className="w-screen flex justify-center relative overflow-y-auto"
-      style={{ fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif", scrollBehavior: "smooth", height: "var(--app-height)" }}
+      className="w-screen flex-col justify-center relative overflow-y-auto"
+      style={{ fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif", scrollBehavior: "smooth"}}
       
     >
-      {/* <DecoBG /> */}
-      <div className="main-container md:grid md:grid-cols-[5fr_9fr_1fr] 2xl:grid-cols-[4fr_9fr_1fr] 2xl:max-w-[80%] w-full" style={{ height: "var(--app-height)" }}>
-      {/* Left Profile Section */}
-      {/* <ProfileCard windowHeight={windowHeight} isScrolledDoubleHeight={isScrolledDoubleHeight}/> */}
-      {/* <Main containerRef={mainContentRef}/> */}
-      <Main/>
-      {/* Navigation Section (least space) */}
-      {/* {isScrolledDoubleHeight && <div className="md:hidden">
-        <NavBar activeSection={activeSection} setActiveSection={setActiveSection}/>
-      </div>}
-      <div className="hidden md:flex">
-        <NavBar activeSection={activeSection} setActiveSection={setActiveSection}/>
-      </div> */}
-      </div>
+      <div className="sect1 bg-amber-500 h-screen">hi</div>
+      <div className="sect1 bg-green-500 h-screen">howdi</div>
     </div>
   );
 }
