@@ -32,7 +32,7 @@ const ProfileCard = ({ windowHeight=null, isScrolledDoubleHeight=false }: { wind
     const isSubCompact = h && h < (maxH / 2) && h > compactThreshold; // midpoint height
 
     return (
-        <div className="text-[#d1d1d1] w-full p-8 h-dvh flex flex-col items-center md:relative"
+        <div className="text-[#d1d1d1] w-full p-8 h-lvh flex flex-col items-center md:relative"
             style={{
             }}
         >
@@ -156,7 +156,7 @@ const ProfileCard = ({ windowHeight=null, isScrolledDoubleHeight=false }: { wind
                                 ayaan.asish@gmail.com
                             </p>
                             <p style={{ letterSpacing: "0.05em", textAlign: "center", color:"#60cc87" }} className="text-2xl">
-                                Student at WCSS, Ottawa
+                                Student at WCSS Ottawa
                             </p>
                             <div className="mt-4 flex items-center gap-4 text-white/50">
                                 <a

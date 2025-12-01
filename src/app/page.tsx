@@ -115,12 +115,12 @@ export default function Home() {
   
   return (
     <div
-      className="h-dvh w-screen flex justify-center relative overflow-y-auto"
+      className="h-lvh w-screen flex justify-center relative overflow-y-auto"
       style={{ fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif", scrollBehavior: "smooth" }}
       ref={topContainerRef}
     >
       <DecoBG />
-      <div className="main-container md:grid md:grid-cols-[5fr_9fr_1fr] 2xl:grid-cols-[4fr_9fr_1fr] md:h-dvh 2xl:max-w-[80%] w-full">
+      <div className="main-container md:grid md:grid-cols-[5fr_9fr_1fr] 2xl:grid-cols-[4fr_9fr_1fr] md:h-lvh 2xl:max-w-[80%] w-full">
       {/* Left Profile Section */}
       <ProfileCard windowHeight={windowHeight} isScrolledDoubleHeight={isScrolledDoubleHeight}/>
       <Main containerRef={mainContentRef}/>
