@@ -9,6 +9,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
     return (
         <div
           ref={containerRef}
+          onScroll={()=>console.log("scrolling main container")}
           className="md:p-8 w-full overflow-y-auto mr-[100px] scrollbar-hide"
           style={{
             scrollBehavior: "smooth",

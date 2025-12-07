@@ -5,6 +5,7 @@ const ProfileCard = ({ windowHeight=null, isScrolledDoubleHeight=false }: { wind
     const minH = 60;
     const maxH = typeof window !== "undefined" ? window.innerHeight : 800;
     const calculateHeight = (windowHeight: any): number => {
+        console.log("Calculating height with windowHeight:", windowHeight);
         if (typeof windowHeight === "number" && windowHeight !== 0) {
             return windowHeight;
         }

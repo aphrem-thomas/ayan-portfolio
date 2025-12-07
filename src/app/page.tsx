@@ -44,12 +44,10 @@ export default function Home() {
 
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
 
-  const topContainerHandleScroll = (e: Event) => {
+  const topContainerHandleScroll = () => {
     handleScroll();
-    const container = topContainerRef.current;
-    let scrollDistance = container ? container.scrollTop : window.scrollY;
-    scrollDistance = Math.max(scrollDistance, 0);
-    // console.log("scrollDistance::::", scrollDistance);
+    const scrollDistance = Math.max(window.scrollY, 0);
+    console.log("scrollDistance::::", window.scrollY);
     const newHeight = Math.max((initialWindowHeight - scrollDistance) - heightOffset, 60);
     setWindowHeight(newHeight);
     if (scrollDistance > 2*initialWindowHeight) {
@@ -109,12 +107,20 @@ export default function Home() {
       }
     };
   }, []);
-  
+  useEffect(() => {
+    
+    window.addEventListener("scroll", topContainerHandleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener("scroll", topContainerHandleScroll);
+    };
+    }, []);
+
   return (
     <div
-      className="w-screen flex-col justify-center relative overflow-y-auto"
+      className="topContainer w-screen flex-col justify-center relative"
       style={{ fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif", scrollBehavior: "smooth" }}
-      
+      ref={topContainerRef}
     >
       <DecoBG />
       <div className="main-container md:grid md:grid-cols-[5fr_9fr_1fr] 2xl:grid-cols-[4fr_9fr_1fr] 2xl:max-w-[80%] w-full">
