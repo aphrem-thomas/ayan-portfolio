@@ -14,7 +14,7 @@ type DecoBGProps = {
  */
 const DecoBG: React.FC<DecoBGProps> = () => {
     return (
-      <div className="fixed inset-0 -z-10 overflow-hidden w-full bg-[#0a0a0a]">
+      <div className="fixed inset-0 -z-10 overflow-hidden w-full bg-[#0a0a0a] h-full">
       {/* Top Left Gradient Blob */}
       <div
         style={{
