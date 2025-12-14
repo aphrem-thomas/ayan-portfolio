@@ -29,6 +29,7 @@ export default function Home() {
     typeof window !== "undefined" ? window.innerHeight : 0
   );
   const [windowHeight, setWindowHeight] = useState<number>(0);
+  const [scrolledViewHeight, setScrolledViewHeight] = useState<boolean>(false);  
   const [isScrolledDoubleHeight, setIsScrolledDoubleHeight] = useState(false);
 
   useEffect(() => {
@@ -50,6 +51,7 @@ export default function Home() {
     console.log("scrollDistance::::", window.scrollY);
     const newHeight = Math.max((initialWindowHeight - scrollDistance) - heightOffset, 60);
     setWindowHeight(newHeight);
+    setScrolledViewHeight(scrollDistance > initialWindowHeight);
     if (scrollDistance > 2*initialWindowHeight) {
       setIsScrolledDoubleHeight(true);
     } else {
@@ -107,10 +109,9 @@ export default function Home() {
       }
     };
   }, []);
+
   useEffect(() => {
-    
     window.addEventListener("scroll", topContainerHandleScroll, { passive: true });
-    
     return () => {
       window.removeEventListener("scroll", topContainerHandleScroll);
     };
@@ -125,16 +126,16 @@ export default function Home() {
       <DecoBG />
       <div className="main-container md:grid md:grid-cols-[5fr_9fr_1fr] 2xl:grid-cols-[4fr_9fr_1fr] 2xl:max-w-[80%] w-full">
       {/* Left Profile Section */}
-      <ProfileCard windowHeight={windowHeight} isScrolledDoubleHeight={isScrolledDoubleHeight}/>
+      <ProfileCard windowHeight={windowHeight} isScrolledDoubleHeight={isScrolledDoubleHeight} compact={scrolledViewHeight}/>
       <Main containerRef={mainContentRef}/>
       {/* <Main/> */}
       {/* Navigation Section (least space) */}
-      {/* {isScrolledDoubleHeight && <div className="md:hidden">
+      {isScrolledDoubleHeight && <div className="md:hidden">
         <NavBar activeSection={activeSection} setActiveSection={setActiveSection}/>
       </div>}
       <div className="hidden md:flex">
         <NavBar activeSection={activeSection} setActiveSection={setActiveSection}/>
-      </div> */}
+      </div>
       </div>
     </div>
   );

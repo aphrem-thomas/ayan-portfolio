@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Button from "@mui/material/Button";
 
-const ProfileCard = ({ windowHeight=null, isScrolledDoubleHeight=false }: { windowHeight: any, isScrolledDoubleHeight: boolean }) => {
+const ProfileCard = ({ windowHeight=null, isScrolledDoubleHeight=false, compact=false }: { windowHeight: any, isScrolledDoubleHeight: boolean, compact: boolean }) => {
     const minH = 60;
     const maxH = typeof window !== "undefined" ? window.innerHeight : 800;
     const calculateHeight = (windowHeight: any): number => {
@@ -29,7 +29,7 @@ const ProfileCard = ({ windowHeight=null, isScrolledDoubleHeight=false }: { wind
     // when near the minimum height use the compact horizontal layout
     const compactThreshold = minH + 20; // small cushion above min
     const isFullSize = h && h >= (maxH / 2); // near max height
-    const isCompact = h <= compactThreshold;
+    const isCompact = compact;
     const isSubCompact = h && h < (maxH / 2) && h > compactThreshold; // midpoint height
 
     return (
@@ -40,10 +40,11 @@ const ProfileCard = ({ windowHeight=null, isScrolledDoubleHeight=false }: { wind
         >
             <div
                 className={`profileContainer  rounded-[24px] w-full ${
-                    isCompact ? "flex-row items-center justify-between px-4 py-2" : "flex flex-col items-center justify-center p-8 gap-6"
+                    isCompact ? "flex-row items-center justify-between" : "flex flex-col items-center justify-center p-6 gap-6"
                 }`}
                 style={{
                     zIndex: windowHeight < 150 ? 10 : -1,
+                    padding: isCompact ? "8px" : "24px",
                     position: isCompact ? "fixed" : "relative",
                     transition: "transform 700ms cubic-bezier(.2,.9,.35,1), box-shadow 300ms ease",
                     transform: isCompact ? isScrolledDoubleHeight ? "translateY(-120px)" : "translateY(-20px)" : "translateY(0)",
@@ -86,14 +87,14 @@ const ProfileCard = ({ windowHeight=null, isScrolledDoubleHeight=false }: { wind
                                 >
                                     Ayaan
                                 </div>
-                                <div className="text-[11px] text-white/60" style={{ marginTop: 2 }}>
+                                <div className="text-[11px] text-white/60" style={{ marginTop: 4 }}>
                                     Aerospace enthusiast
                                 </div>
                             </div>
                             <Button
                                 variant="contained"
                                 sx={{
-                                    background: "linear-gradient(90deg, #60cc87 60%, #b6ffe2 100%)",
+                                    background: "#60cc87",
                                     color: "#1c1c1c",
                                     border: "1.5px solid #60cc87",
                                     "&:hover": {
@@ -118,16 +119,19 @@ const ProfileCard = ({ windowHeight=null, isScrolledDoubleHeight=false }: { wind
                 { !isCompact &&(
                     /* TALL / REGULAR VERTICAL LAYOUT */
                     <>
-                        <div className="name_heading flex justify-between w-full items-center">
+                        <div className="name_heading flex justify-center w-full items-center gap-4">
                             <div
-                                className="nameSection text-6xl font-extrabold tracking-tight"
-                                style={{ fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif" }}
+                                className="nameSection tracking-tight"
+                                style={{ fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif",
+                                    fontSize:"40px", fontWeight:"600", letterSpacing: "0.075em"
+                                 }}
                             >
                                 Ayaan
                             </div>
                             <div
-                                className="titleSection ml-4 px-4 py-2 mt-3 text-sm font-semibold"
+                                className="titleSection font-semibold mt-2"
                                 style={{
+                                    fontSize: "11px",
                                     letterSpacing: "0.05em",
                                     fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif",
                                 }}
@@ -157,7 +161,7 @@ const ProfileCard = ({ windowHeight=null, isScrolledDoubleHeight=false }: { wind
                             >
                                 ayaan.asish@gmail.com
                             </p>
-                            <p style={{ letterSpacing: "0.05em", textAlign: "center", color:"#60cc87" }} className="text-2xl">
+                            <p style={{ letterSpacing: "0.05em", textAlign: "center", color:"rgb(135 135 135)" }} className="text-2xl">
                                 Student at WCSS Ottawa
                             </p>
                             <div className="mt-4 flex items-center gap-4 text-white/50">
@@ -166,14 +170,14 @@ const ProfileCard = ({ windowHeight=null, isScrolledDoubleHeight=false }: { wind
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <Image src="/github.png" alt="GitHub" width={28} height={28} style={{ filter: "opacity(0.7)" }} />
+                                    <Image src="/github.png" alt="GitHub" width={28} height={28}/>
                                 </a>
                                 <a
                                     href="https://linkedin.com/in/ayaan"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <Image style={{ filter: "opacity(0.7)" }} src="/linkedin.svg" alt="LinkedIn" width={45} height={45} />
+                                    <Image src="/linkedin.svg" alt="LinkedIn" width={45} height={45} />
                                 </a>
                             </div>
                         </div>
@@ -182,7 +186,7 @@ const ProfileCard = ({ windowHeight=null, isScrolledDoubleHeight=false }: { wind
                             <Button
                                 variant="contained"
                                 sx={{
-                                    background: "linear-gradient(90deg, #60cc87 60%, #b6ffe2 100%)",
+                                    background: "#60cc87",
                                     color: "#1c1c1c",
                                     border: "1.5px solid #60cc87",
                                     zIndex:1000,
