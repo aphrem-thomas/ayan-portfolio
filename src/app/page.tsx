@@ -123,7 +123,7 @@ export default function Home() {
       style={{ fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif", scrollBehavior: "smooth" }}
       ref={topContainerRef}
     >
-      <DecoBG />
+      {/* <DecoBG /> */}
       <div className="main-container md:grid md:grid-cols-[5fr_9fr_1fr] 2xl:grid-cols-[4fr_9fr_1fr] 2xl:max-w-[80%] w-full">
       {/* Left Profile Section */}
       <ProfileCard windowHeight={windowHeight} isScrolledDoubleHeight={isScrolledDoubleHeight} compact={scrolledViewHeight}/>
