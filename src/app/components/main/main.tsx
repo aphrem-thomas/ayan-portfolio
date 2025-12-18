@@ -24,48 +24,49 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
               id="home"
               className="section-height md:mb-8 flex flex-col justify-center items-start px-12 md:rounded-2xl shadow-lg"
               style={{
-              background: "linear-gradient(90deg, rgba(35,37,38,0.7) 0%, rgba(65,67,69,0.7) 100%)",
-              backdropFilter: "blur(12px)",
-              WebkitBackdropFilter: "blur(12px)",
-              border: "1px solid rgba(96,204,135,0.15)",
+                background: "linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, #232526 100%)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
               }}
             >
               <div className="flex flex-col gap-8">
-              <h1
-                className="text-7xl font-extrabold"
-                style={{
-                background: "linear-gradient(90deg, #60cc87 0%, #ffffff 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-                color: "transparent",
-                }}
-              >
-                Hi, I'm Ayaan Asish
-              </h1>
-              <p className="text-lg text-white max-w-xl">
-                Welcome to my portfolio! I’m an aerospace enthusiast and full-stack developer, passionate about building scalable web applications and exploring new technologies.
-              </p>
-              <Button
-                variant="outlined"
-                sx={{
-                backgroundColor: "transparent",
-                color: "#60cc87",
-                border: "2px solid #60cc87",
-                borderRadius: "30px",
-                fontWeight: "bold",
-                width: "300px",
-                fontSize: "1.1rem",
-                fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif",
-                "&:hover": {
-                  backgroundColor: "#232526",
-                  borderColor: "#4bbd74",
-                  color: "#4bbd74",
-                },
-                }}
-              >
-                View My Work
-              </Button>
+                <h1
+                  className="text-7xl font-extrabold tracking-tight"
+                  style={{
+                    background: "linear-gradient(180deg, #60cc87 0%, #ffffff 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                    color: "transparent",
+                    fontFamily: "'Poppins', 'Montserrat', 'Inter', sans-serif",
+                    letterSpacing: "-0.02em",
+                  }}
+                >
+                  Hi, I'm Ayaan Asish
+                </h1>
+                <p className="text-lg text-white max-w-xl">
+                  Welcome to my portfolio! I'm an aerospace enthusiast and full-stack developer, passionate about building scalable web applications and exploring new technologies.
+                </p>
+                <Button
+                  variant="outlined"
+                  sx={{
+                    backgroundColor: "transparent",
+                    color: "#60cc87",
+                    border: "2px solid #60cc87",
+                    borderRadius: "30px",
+                    fontWeight: "bold",
+                    width: "300px",
+                    fontSize: "1.1rem",
+                    fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif",
+                    "&:hover": {
+                      backgroundColor: "#232526",
+                      borderColor: "#4bbd74",
+                      color: "#4bbd74",
+                    },
+                  }}
+                >
+                  View My Work
+                </Button>
               </div>
             </section>
 

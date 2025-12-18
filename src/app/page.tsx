@@ -4,6 +4,7 @@ import Main from "./components/main/main";
 import DecoBG from "./components/DecoBG/decoBg";
 import ProfileCard from "./components/ProfileCard/ProfileCard";
 import NavBar from "./components/NavBar/NavBar";
+import ProfileMobile from "./components/ProfileMobile/ProfileMobile";
 
 export default function Home() {
   const sectionIds = [
@@ -123,10 +124,16 @@ export default function Home() {
       style={{ fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif", scrollBehavior: "smooth" }}
       ref={topContainerRef}
     >
-      {/* <DecoBG /> */}
+      <DecoBG />
       <div className="main-container md:grid md:grid-cols-[5fr_9fr_1fr] 2xl:grid-cols-[4fr_9fr_1fr] 2xl:max-w-[80%] w-full">
       {/* Left Profile Section */}
-      <ProfileCard windowHeight={windowHeight} isScrolledDoubleHeight={isScrolledDoubleHeight} compact={scrolledViewHeight}/>
+      <div className="hidden md:block">
+        <ProfileCard windowHeight={windowHeight} isScrolledDoubleHeight={isScrolledDoubleHeight} compact={scrolledViewHeight}/>
+      </div>
+      <div className="md:hidden">
+        <ProfileMobile windowHeight={windowHeight} isScrolledDoubleHeight={isScrolledDoubleHeight} compact={scrolledViewHeight}/>
+      </div>
+      {/* Main Content Section */}
       <Main containerRef={mainContentRef}/>
       {/* <Main/> */}
       {/* Navigation Section (least space) */}
