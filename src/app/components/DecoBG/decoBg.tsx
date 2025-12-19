@@ -20,8 +20,8 @@ const DecoBG: React.FC<DecoBGProps> = () => {
       {/* Top Left Gradient Blob */}
         <GridBG />
       </div>
-      <div className="md:hidden flex items-start">
-        <img src="/ayaanProfile16x9.jpg" alt="background" className="fixed inset-0 -z-10 w-full object-cover"/>
+      <div className="md:hidden flex items-start h-dvh absolute">
+        <img src="/ayaanProfileNew.jpg" alt="background" className="fixed inset-0 -z-10 w-full object-cover"/>
       </div>
       </>
     );
