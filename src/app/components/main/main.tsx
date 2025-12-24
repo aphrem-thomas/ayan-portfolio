@@ -118,7 +118,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
             <h2 className="text-4xl font-bold text-[#60cc87] mb-4">Projects</h2>
               <Grid container spacing={4}>
                 {projects.map((p, idx) => (
-                  <Grid item xs={12} sm={6} md={4} key={idx}>
+                  <Grid size={{ xs: 12, sm: 6, md: 4 }} key={idx}>
                     <Card
                       sx={{
                         backgroundColor: "#232526",
