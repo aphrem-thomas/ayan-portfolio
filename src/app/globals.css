@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+*, html {
+
+    scroll-behavior: smooth !important;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #1c1c1c;
@@ -38,11 +43,11 @@ body {
 
 /* Section height utility for iOS Safari compatibility */
 .section-height {
-  height: var(--app-height);
+  min-height: var(--app-height);
 }
 
 @media (min-width: 768px) {
   .section-height {
-    height: calc(var(--app-height) - 4rem);
+    min-height: calc(var(--app-height) - 4rem);
   }
 }

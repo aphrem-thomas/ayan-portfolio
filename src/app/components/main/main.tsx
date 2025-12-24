@@ -1,4 +1,4 @@
-import { Button } from '@mui/material';
+import { Button, Card, CardContent, CardMedia, Typography, Grid } from '@mui/material';
 import React, { RefObject } from 'react';
 
 interface MainProps {
@@ -6,6 +6,29 @@ interface MainProps {
 }
 
 const Main: React.FC<MainProps> = ({containerRef}) => {
+    const projects = [
+      {
+        title: "AI Flight Planner",
+        description:
+          "Built an AI-powered flight planning tool that optimizes routes and fuel usage using weather and airspace data.",
+        image:
+          "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=1200&q=60",
+      },
+      {
+        title: "Rocketry Telemetry Dashboard",
+        description:
+          "Created a live telemetry dashboard for rocketry experiments to visualize altitude, velocity, and thrust in real time.",
+        image:
+          "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1200&q=60",
+      },
+      {
+        title: "STEM Club Website",
+        description:
+          "Developed a responsive website for the STEM club to showcase events, projects, and resources.",
+        image:
+          "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=1200&q=60",
+      },
+    ];
     return (
         <div
           ref={containerRef}
@@ -42,12 +65,12 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
                     letterSpacing: "-0.02em",
                   }}
                 >
-                  Hi, I'm Ayaan Asish
+                  Hi there,
                 </h1>
                 <p className="text-lg text-white max-w-xl">
-                  Welcome to my portfolio! I'm an aerospace enthusiast and full-stack developer, passionate about building scalable web applications and exploring new technologies.
+                    I am a student at WCSS with a passion for Aerospace Engineering and STEM. <br/>I’m a cadet with the 706 Snowy Owl Squadron and have completed a rocketry course through cadets. <br/>I serve as Co-President of the STEM Club, am a student athlete in badminton, a chess team member, and the lead guitarist of @fishhook_.theband. <br/>I enjoy balancing science, leadership, sports, and music.
                 </p>
-                <Button
+                {/* <Button
                   variant="outlined"
                   sx={{
                     backgroundColor: "transparent",
@@ -66,12 +89,12 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
                   }}
                 >
                   View My Work
-                </Button>
+                </Button> */}
               </div>
             </section>
 
           {/* About Me Section */}
-            <section
+            {/* <section
             id="about"
             className="section-height md:mb-8 flex flex-col justify-center items-start px-12 bg-[#232526] md:rounded-2xl shadow-lg"
             >
@@ -85,31 +108,49 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
               <li>Cloud & DevOps Enthusiast</li>
               <li>Open Source Contributor</li>
             </ul>
-            </section>
+            </section> */}
 
           {/* Projects Section */}
             <section
             id="projects"
-            className="section-height md:mb-8 flex flex-col justify-center items-start px-12 bg-gradient-to-br from-[#232526] to-[#414345] md:rounded-2xl shadow-lg"
+            className="section-height md:mb-8 flex flex-col justify-center items-start p-12 bg-gradient-to-br from-[#232526] to-[#414345] md:rounded-2xl shadow-lg"
             >
             <h2 className="text-4xl font-bold text-[#60cc87] mb-4">Projects</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-[#1c1c1c] rounded-xl p-6 shadow-md">
-              <h3 className="text-2xl font-semibold text-[#60cc87] mb-2">Portfolio Website</h3>
-              <p className="text-white mb-2">Personal portfolio built with Next.js, React, and Tailwind CSS. Features smooth navigation and responsive design.</p>
-              <a href="https://github.com/ayaan/portfolio" target="_blank" rel="noopener noreferrer" className="text-[#60cc87] underline">GitHub Repo</a>
-              </div>
-              <div className="bg-[#1c1c1c] rounded-xl p-6 shadow-md">
-              <h3 className="text-2xl font-semibold text-[#60cc87] mb-2">Todo App</h3>
-              <p className="text-white mb-2">A productivity app with authentication, cloud sync, and real-time updates. Built using React and Firebase.</p>
-              <a href="https://github.com/ayaan/todo-app" target="_blank" rel="noopener noreferrer" className="text-[#60cc87] underline">GitHub Repo</a>
-              </div>
-              <div className="bg-[#1c1c1c] rounded-xl p-6 shadow-md">
-              <h3 className="text-2xl font-semibold text-[#60cc87] mb-2">Blog Platform</h3>
-              <p className="text-white mb-2">Markdown-based blogging platform with custom themes and analytics. Built with Node.js and MongoDB.</p>
-              <a href="https://github.com/ayaan/blog-platform" target="_blank" rel="noopener noreferrer" className="text-[#60cc87] underline">GitHub Repo</a>
-              </div>
-            </div>
+              <Grid container spacing={4}>
+                {projects.map((p, idx) => (
+                  <Grid item xs={12} sm={6} md={4} key={idx}>
+                    <Card
+                      sx={{
+                        backgroundColor: "#232526",
+                        color: "#ffffff",
+                        borderRadius: 3,
+                        boxShadow: 6,
+                        border: "1px solid #414345",
+                        height: "100%",
+                      }}
+                    >
+                      <CardMedia
+                        component="img"
+                        height="180"
+                        image={p.image}
+                        alt={`${p.title} image`}
+                        sx={{ objectFit: "cover" }}
+                      />
+                      <CardContent>
+                        <Typography
+                          variant="h6"
+                          sx={{ color: "#60cc87", fontWeight: 700 }}
+                        >
+                          {p.title}
+                        </Typography>
+                        <Typography variant="body2" sx={{ color: "#e0e0e0", mt: 1 }}>
+                          {p.description}
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  </Grid>
+                ))}
+              </Grid>
             </section>
 
           {/* Achievements Section */}
