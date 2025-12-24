@@ -1,5 +1,11 @@
 import Image from "next/image";
 import Button from "@mui/material/Button";
+import { BBH_Sans_Bartle } from "next/font/google";
+
+const bbhSansBartle = BBH_Sans_Bartle({
+  weight: ["400"],
+  subsets: ["latin"],
+});
 
 const ProfileMobile = ({
   windowHeight = null,
@@ -24,14 +30,16 @@ const ProfileMobile = ({
         <div className="name text-right mb-8 h-full flex-col justify-start items-end pr-8 pt-8">
             <h1
             style={{
-            fontSize: "4rem",
-            fontWeight: "500",
-            color: "#888888",
+            fontSize: "3rem",
+            fontWeight: "700",
+            color: "rgba(0, 0, 0, 0.8)",
             letterSpacing: "0.02em",
-            lineHeight: "1.1",
+            lineHeight: "0.6",
             }}
+            className={bbhSansBartle.className}
             >
-            Ayaan<br />Asish
+            Ayaan<br />
+            <span className="text-3xl">Asish</span>
             </h1>
         </div>
       <div
