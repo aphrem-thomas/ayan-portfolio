@@ -1,13 +1,8 @@
 import React from 'react';
+import contentData from '@/data/content.json';
 
 const NavBar: React.FC<{activeSection: string, setActiveSection: React.Dispatch<React.SetStateAction<string>>}> = ({activeSection, setActiveSection}) => {
-    const navLinks = [
-    { id: "home", title: "Home" },
-    { id: "about", title: "About Me" },
-    { id: "projects", title: "Projects" },
-    { id: "achievements", title: "Achievements" },
-    { id: "experience", title: "Experience" },
-  ];
+    const navLinks = contentData.navigation;
     return (
        <div className="fixed bottom-10 left-1/2 -translate-x-1/2 md:relative md:flex md:items-center md:justify-center md:h-lvh">
         <div className="flex md:flex-col gap-6 p-4  md:w-[60px] md:py-8 md:px-2 z-20 rounded-4xl border border-white/50 items-center justify-center" style={{ 

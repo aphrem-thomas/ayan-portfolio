@@ -1,34 +1,13 @@
 import { Button, Card, CardContent, CardMedia, Typography, Grid } from '@mui/material';
 import React, { RefObject } from 'react';
+import contentData from '@/data/content.json';
 
 interface MainProps {
   containerRef: RefObject<HTMLDivElement | null>;
 }
 
 const Main: React.FC<MainProps> = ({containerRef}) => {
-    const projects = [
-      {
-        title: "AI Flight Planner",
-        description:
-          "Built an AI-powered flight planning tool that optimizes routes and fuel usage using weather and airspace data.",
-        image:
-          "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=1200&q=60",
-      },
-      {
-        title: "Rocketry Telemetry Dashboard",
-        description:
-          "Created a live telemetry dashboard for rocketry experiments to visualize altitude, velocity, and thrust in real time.",
-        image:
-          "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1200&q=60",
-      },
-      {
-        title: "STEM Club Website",
-        description:
-          "Developed a responsive website for the STEM club to showcase events, projects, and resources.",
-        image:
-          "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=1200&q=60",
-      },
-    ];
+    const projects = contentData.projects.items;
     return (
         <div
           ref={containerRef}
@@ -65,10 +44,10 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
                     letterSpacing: "-0.02em",
                   }}
                 >
-                  Hi there,
+                  {contentData.home.greeting}
                 </h1>
                 <p className="text-lg text-white max-w-xl">
-                    I am a student at WCSS with a passion for Aerospace Engineering and STEM. <br/>I’m a cadet with the 706 Snowy Owl Squadron and have completed a rocketry course through cadets. <br/>I serve as Co-President of the STEM Club, am a student athlete in badminton, a chess team member, and the lead guitarist of @fishhook_.theband. <br/>I enjoy balancing science, leadership, sports, and music.
+                    {contentData.home.introduction}
                 </p>
                 {/* <Button
                   variant="outlined"
@@ -115,7 +94,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
             id="projects"
             className="section-height md:mb-8 flex flex-col justify-center items-start p-12 bg-gradient-to-br from-[#232526] to-[#414345] md:rounded-2xl shadow-lg"
             >
-            <h2 className="text-4xl font-bold text-[#60cc87] mb-4">Projects</h2>
+            <h2 className="text-4xl font-bold text-[#60cc87] mb-4">{contentData.projects.title}</h2>
               <Grid container spacing={4}>
                 {projects.map((p, idx) => (
                   <Grid size={{ xs: 12, sm: 6, md: 4 }} key={idx}>
@@ -158,20 +137,13 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
             id="achievements"
             className="section-height md:mb-8 flex flex-col justify-center items-start px-12 bg-[#232526] md:rounded-2xl shadow-lg"
           >
-            <h2 className="text-4xl font-bold text-[#60cc87] mb-4">Achievements</h2>
+            <h2 className="text-4xl font-bold text-[#60cc87] mb-4">{contentData.achievements.title}</h2>
             <ul className="list-disc pl-6 text-white text-lg">
-              <li>
-                <span className="font-semibold text-[#60cc87]">Winner, XYZ Hackathon 2023:</span> Developed an AI-powered flight planner.
-              </li>
-              <li>
-                <span className="font-semibold text-[#60cc87]">Dean's List, XYZ University (2021-2024):</span> Recognized for academic excellence.
-              </li>
-              <li>
-                <span className="font-semibold text-[#60cc87]">Published Research:</span> Authored a paper on Web Performance Optimization in IEEE Journal.
-              </li>
-              <li>
-                <span className="font-semibold text-[#60cc87]">Open Source:</span> Contributor to several aviation and tech projects.
-              </li>
+              {contentData.achievements.items.map((achievement, idx) => (
+                <li key={idx}>
+                  <span className="font-semibold text-[#60cc87]">{achievement.label}</span> {achievement.description}
+                </li>
+              ))}
             </ul>
           </section>
 
@@ -180,29 +152,17 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
             id="experience"
             className="section-height md:mb-8 flex flex-col justify-center items-start px-12 bg-gradient-to-br from-[#232526] to-[#414345] md:rounded-2xl shadow-lg"
           >
-            <h2 className="text-4xl font-bold text-[#60cc87] mb-4">Experience</h2>
+            <h2 className="text-4xl font-bold text-[#60cc87] mb-4">{contentData.experience.title}</h2>
             <div className="space-y-6">
-              <div>
-                <h3 className="text-2xl font-semibold text-[#60cc87]">Frontend Developer, ABC Corp</h3>
-                <span className="text-white text-sm">2023 - Present</span>
-                <p className="text-white mt-2">
-                  Building responsive web interfaces, optimizing user experience, and collaborating with cross-functional teams on product launches.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-2xl font-semibold text-[#60cc87]">Intern, DEF Solutions</h3>
-                <span className="text-white text-sm">Summer 2022</span>
-                <p className="text-white mt-2">
-                  Developed internal tools, automation scripts, and contributed to process improvements in the engineering team.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-2xl font-semibold text-[#60cc87]">Freelance Projects</h3>
-                <span className="text-white text-sm">2021 - 2023</span>
-                <p className="text-white mt-2">
-                  Delivered custom web solutions for startups, including e-commerce platforms and data dashboards.
-                </p>
-              </div>
+              {contentData.experience.items.map((exp, idx) => (
+                <div key={idx}>
+                  <h3 className="text-2xl font-semibold text-[#60cc87]">{exp.title}</h3>
+                  <span className="text-white text-sm">{exp.period}</span>
+                  <p className="text-white mt-2">
+                    {exp.description}
+                  </p>
+                </div>
+              ))}
             </div>
           </section>
         </div>

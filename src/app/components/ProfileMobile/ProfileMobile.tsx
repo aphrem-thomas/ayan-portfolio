@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Button from "@mui/material/Button";
 import { BBH_Sans_Bartle } from "next/font/google";
+import contentData from "@/data/content.json";
 
 const bbhSansBartle = BBH_Sans_Bartle({
   weight: ["400"],
@@ -38,8 +39,8 @@ const ProfileMobile = ({
             }}
             className={bbhSansBartle.className}
             >
-            Ayaan<br />
-            <span className="text-3xl">Asish</span>
+            {contentData.profile.name}<br />
+            <span className="text-3xl">{contentData.profile.lastName}</span>
             </h1>
         </div>
       <div
@@ -59,10 +60,10 @@ const ProfileMobile = ({
           </div>
           <div className="infoSection flex flex-col items-center gap-1 mt-8">
             <div className="salutationAndLinks flex justify-between items-center w-full">
-              <div className="salutation text-sm italic">hi I am a student and <br /> an aerospace enthusiast</div>
+              <div className="salutation text-sm italic">{contentData.mobile.salutation}</div>
               <div className="links flex items-center gap-4 text-white/50 justify-center">
                 <a
-                  href="https://github.com/ayaan"
+                  href={contentData.profile.github}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -74,7 +75,7 @@ const ProfileMobile = ({
                   />
                 </a>
                 <a
-                  href="https://linkedin.com/in/ayaan"
+                  href={contentData.profile.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -99,7 +100,7 @@ const ProfileMobile = ({
                 color: "#888888",
               }}
             >
-            Dreaming of rockets, building apps for now
+            {contentData.mobile.punchline}
             </h2>
           </div>
 
@@ -123,7 +124,7 @@ const ProfileMobile = ({
                 },
               }}
             >
-              Connect with Me
+              {contentData.buttons.connectWithMe}
             </Button>
           </div>
         </div>

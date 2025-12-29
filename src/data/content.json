@@ -1,0 +1,103 @@
+{
+  "profile": {
+    "name": "Ayaan",
+    "lastName": "Asish",
+    "title": "Aerospace",
+    "subtitle": "enthusiast",
+    "email": "ayaan.asish@gmail.com",
+    "school": "Student at WCSS Ottawa",
+    "github": "https://github.com/ayaan",
+    "linkedin": "https://linkedin.com/in/ayaan"
+  },
+  "navigation": [
+    { "id": "home", "title": "Home" },
+    { "id": "about", "title": "About Me" },
+    { "id": "projects", "title": "Projects" },
+    { "id": "achievements", "title": "Achievements" },
+    { "id": "experience", "title": "Experience" }
+  ],
+  "home": {
+    "greeting": "Hi there,",
+    "introduction": "I am a student at WCSS with a passion for Aerospace Engineering and STEM. \nI'm a cadet with the 706 Snowy Owl Squadron and have completed a rocketry course through cadets. \nI serve as Co-President of the STEM Club, am a student athlete in badminton, a chess team member, and the lead guitarist of @fishhook_.theband. \nI enjoy balancing science, leadership, sports, and music."
+  },
+  "about": {
+    "title": "About Me",
+    "description": "I'm a developer with a background in aerospace engineering. My journey began with curiosity about flight and technology, leading me to combine both passions in innovative projects. I enjoy collaborating, learning, and solving real-world problems through code.",
+    "skills": [
+      "React, Next.js, TypeScript, Node.js",
+      "UI/UX Design & Prototyping",
+      "Cloud & DevOps Enthusiast",
+      "Open Source Contributor"
+    ]
+  },
+  "projects": {
+    "title": "Projects",
+    "items": [
+      {
+        "title": "AI Flight Planner",
+        "description": "Built an AI-powered flight planning tool that optimizes routes and fuel usage using weather and airspace data.",
+        "image": "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=1200&q=60"
+      },
+      {
+        "title": "Rocketry Telemetry Dashboard",
+        "description": "Created a live telemetry dashboard for rocketry experiments to visualize altitude, velocity, and thrust in real time.",
+        "image": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1200&q=60"
+      },
+      {
+        "title": "STEM Club Website",
+        "description": "Developed a responsive website for the STEM club to showcase events, projects, and resources.",
+        "image": "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=1200&q=60"
+      }
+    ]
+  },
+  "achievements": {
+    "title": "Achievements",
+    "items": [
+      {
+        "label": "Winner, XYZ Hackathon 2023:",
+        "description": "Developed an AI-powered flight planner."
+      },
+      {
+        "label": "Dean's List, XYZ University (2021-2024):",
+        "description": "Recognized for academic excellence."
+      },
+      {
+        "label": "Published Research:",
+        "description": "Authored a paper on Web Performance Optimization in IEEE Journal."
+      },
+      {
+        "label": "Open Source:",
+        "description": "Contributor to several aviation and tech projects."
+      }
+    ]
+  },
+  "experience": {
+    "title": "Experience",
+    "items": [
+      {
+        "title": "Frontend Developer, ABC Corp",
+        "period": "2023 - Present",
+        "description": "Building responsive web interfaces, optimizing user experience, and collaborating with cross-functional teams on product launches."
+      },
+      {
+        "title": "Intern, DEF Solutions",
+        "period": "Summer 2022",
+        "description": "Developed internal tools, automation scripts, and contributed to process improvements in the engineering team."
+      },
+      {
+        "title": "Freelance Projects",
+        "period": "2021 - 2023",
+        "description": "Delivered custom web solutions for startups, including e-commerce platforms and data dashboards."
+      }
+    ]
+  },
+  "mobile": {
+    "salutation": "hi I am a student and \n an aerospace enthusiast",
+    "punchline": "Dreaming of rockets, building apps for now"
+  },
+  "buttons": {
+    "connect": "Let's Connect",
+    "connectWithMe": "Connect with Me",
+    "viewMyWork": "View My Work"
+  }
+}

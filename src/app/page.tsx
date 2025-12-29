@@ -5,22 +5,11 @@ import DecoBG from "./components/DecoBG/decoBg";
 import ProfileCard from "./components/ProfileCard/ProfileCard";
 import NavBar from "./components/NavBar/NavBar";
 import ProfileMobile from "./components/ProfileMobile/ProfileMobile";
+import contentData from "@/data/content.json";
 
 export default function Home() {
-  const sectionIds = [
-    "home",
-    "about",
-    "projects",
-    "achievements",
-    "experience",
-  ];
-  const navLinks = [
-    { id: "home", title: "Home" },
-    { id: "about", title: "About Me" },
-    { id: "projects", title: "Projects" },
-    { id: "achievements", title: "Achievements" },
-    { id: "experience", title: "Experience" },
-  ];
+  const sectionIds = contentData.navigation.map(nav => nav.id);
+  const navLinks = contentData.navigation;
 
   const heightOffset = 80;
 
@@ -120,7 +109,7 @@ export default function Home() {
 
   return (
     <div
-      className="topContainer w-screen flex-col justify-center relative"
+      className="topContainer flex w-screen flex-col justify-center relative md:flex-row "
       style={{ fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif", scrollBehavior: "smooth" }}
       ref={topContainerRef}
     >
@@ -128,7 +117,7 @@ export default function Home() {
       <div className="main-container md:grid md:grid-cols-[5fr_9fr_1fr] 2xl:grid-cols-[4fr_9fr_1fr] 2xl:max-w-[80%] w-full">
       {/* Left Profile Section */}
       <div className="hidden md:block">
-        <ProfileCard windowHeight={windowHeight} isScrolledDoubleHeight={isScrolledDoubleHeight} compact={scrolledViewHeight}/>
+        <ProfileCard windowHeight={windowHeight}/>
       </div>
       <div className="md:hidden">
         <ProfileMobile windowHeight={windowHeight} isScrolledDoubleHeight={isScrolledDoubleHeight} compact={scrolledViewHeight}/>
