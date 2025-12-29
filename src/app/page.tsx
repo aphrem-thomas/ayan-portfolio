@@ -125,9 +125,9 @@ export default function Home() {
       {/* Main Content Section */}
       <Main containerRef={mainContentRef}/>
       {/* Navigation Section (least space) */}
-      {isScrolledDoubleHeight && <div className="md:hidden">
+      {/* {isScrolledDoubleHeight && <div className="md:hidden">
         <NavBar activeSection={activeSection} setActiveSection={setActiveSection}/>
-      </div>}
+      </div>} */}
       <div className="hidden md:flex">
         <NavBar activeSection={activeSection} setActiveSection={setActiveSection}/>
       </div>
