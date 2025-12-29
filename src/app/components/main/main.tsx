@@ -165,6 +165,102 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
               ))}
             </div>
           </section>
+
+          {/* Connect With Me Section */}
+          <section
+            id="connect"
+            className="section-height md:mb-8 flex flex-col justify-center items-start px-12 bg-[#232526] md:rounded-2xl shadow-lg"
+          >
+            <h2 className="text-4xl font-bold text-[#60cc87] mb-6">Connect With Me</h2>
+            <form className="w-full max-w-2xl space-y-4" onSubmit={(e) => { 
+              e.preventDefault(); 
+              const formData = new FormData(e.currentTarget);
+              const googleFormData = new FormData();
+              googleFormData.append('entry.219776786', formData.get('name') as string);
+              googleFormData.append('entry.413775452', formData.get('phone') as string);
+              googleFormData.append('entry.1226142718', formData.get('email') as string);
+              googleFormData.append('entry.539297120', formData.get('message') as string);
+              
+              fetch('https://docs.google.com/forms/d/e/1FAIpQLSfLDvQcy6Vr5VKwxiwYFn7A1CnMmAc4MO3mVEXdy4PEZGAkXw/formResponse', {
+                method: 'POST',
+                mode: 'no-cors',
+                body: googleFormData
+              }).then(() => {
+                alert('Thank you for reaching out! I will get back to you soon.');
+                e.currentTarget.reset();
+              }).catch((error) => {
+                console.error('Error!', error.message);
+              });
+            }}>
+              <div>
+                <label htmlFor="name" className="block text-white text-sm font-medium mb-2">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  className="w-full px-4 py-3 bg-[#414345] text-white rounded-lg border border-[#60cc87] focus:outline-none focus:ring-2 focus:ring-[#60cc87]"
+                  placeholder="Your name"
+                />
+              </div>
+              <div>
+                <label htmlFor="phone" className="block text-white text-sm font-medium mb-2">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  className="w-full px-4 py-3 bg-[#414345] text-white rounded-lg border border-[#60cc87] focus:outline-none focus:ring-2 focus:ring-[#60cc87]"
+                  placeholder="Your phone number"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-white text-sm font-medium mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  className="w-full px-4 py-3 bg-[#414345] text-white rounded-lg border border-[#60cc87] focus:outline-none focus:ring-2 focus:ring-[#60cc87]"
+                  placeholder="Your email"
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-white text-sm font-medium mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  className="w-full px-4 py-3 bg-[#414345] text-white rounded-lg border border-[#60cc87] focus:outline-none focus:ring-2 focus:ring-[#60cc87] resize-none"
+                  placeholder="Your message"
+                />
+              </div>
+              <Button
+                variant="contained"
+                type="submit"
+                sx={{
+                  backgroundColor: "#60cc87",
+                  color: "#232526",
+                  borderRadius: "8px",
+                  fontWeight: "bold",
+                  padding: "12px 32px",
+                  fontSize: "1rem",
+                  fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif",
+                  "&:hover": {
+                    backgroundColor: "#4bbd74",
+                  },
+                }}
+              >
+                Send Message
+              </Button>
+            </form>
+          </section>
+
         </div>
     );
 };
