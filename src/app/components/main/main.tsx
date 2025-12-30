@@ -1,5 +1,5 @@
 import { Button, Card, CardContent, CardMedia, Typography, Grid } from '@mui/material';
-import React, { RefObject } from 'react';
+import React, { RefObject, useEffect, useState } from 'react';
 import contentData from '@/data/content.json';
 
 interface MainProps {
@@ -8,6 +8,29 @@ interface MainProps {
 
 const Main: React.FC<MainProps> = ({containerRef}) => {
     const projects = contentData.projects.items;
+    const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+    const transitionValue = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setVisibleSections((prev) => new Set(prev).add(entry.target.id));
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        const sections = document.querySelectorAll('section[id]');
+        sections.forEach((section) => observer.observe(section));
+
+        return () => {
+            sections.forEach((section) => observer.unobserve(section));
+        };
+    }, []);
+
     return (
         <div
           ref={containerRef}
@@ -31,7 +54,14 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
                 WebkitBackdropFilter: "blur(20px)",
               }}
             >
-              <div className="flex flex-col gap-8">
+              <div 
+                className="flex flex-col gap-8"
+                style={{
+                  opacity: visibleSections.has('home') ? 1 : 0,
+                  transform: visibleSections.has('home') ? 'translateY(0)' : 'translateY(40px)',
+                  transition: transitionValue,
+                }}
+              >
                 <h1
                   className="text-7xl font-extrabold tracking-tight"
                   style={{
@@ -94,7 +124,13 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
             id="projects"
             className="section-height md:mb-8 flex flex-col justify-center items-start p-12 bg-gradient-to-br from-[#232526] to-[#414345] md:rounded-2xl shadow-lg"
             >
-            <h2 className="text-4xl font-bold text-[#60cc87] mb-4">{contentData.projects.title}</h2>
+              <h2 className="text-4xl font-bold text-[#60cc87] mb-4">{contentData.projects.title}</h2>
+            <div
+            style={{
+                opacity: visibleSections.has('projects') ? 1 : 0,
+                transform: visibleSections.has('projects') ? 'translateY(0)' : 'translateY(30px)',
+                transition: transitionValue,
+              }}>
               <Grid container spacing={4}>
                 {projects.map((p, idx) => (
                   <Grid size={{ xs: 12, sm: 6, md: 4 }} key={idx}>
@@ -130,6 +166,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
                   </Grid>
                 ))}
               </Grid>
+            </div>
             </section>
 
           {/* Achievements Section */}
@@ -137,14 +174,22 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
             id="achievements"
             className="section-height md:mb-8 flex flex-col justify-center items-start px-12 bg-[#232526] md:rounded-2xl shadow-lg"
           >
-            <h2 className="text-4xl font-bold text-[#60cc87] mb-4">{contentData.achievements.title}</h2>
-            <ul className="list-disc pl-6 text-white text-lg">
-              {contentData.achievements.items.map((achievement, idx) => (
-                <li key={idx}>
-                  <span className="font-semibold text-[#60cc87]">{achievement.label}</span> {achievement.description}
-                </li>
-              ))}
-            </ul>
+            <div
+            >
+              <h2 className="text-4xl font-bold text-[#60cc87] mb-4">{contentData.achievements.title}</h2>
+              <ul className="list-disc pl-6 text-white text-lg"
+                style={{
+                  opacity: visibleSections.has('achievements') ? 1 : 0,
+                  transform: visibleSections.has('achievements') ? 'translateY(0)' : 'translateY(30px)',
+                  transition: transitionValue,
+                }}>
+                {contentData.achievements.items.map((achievement, idx) => (
+                  <li key={idx}>
+                    <span className="font-semibold text-[#60cc87]">{achievement.label}</span> {achievement.description}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </section>
 
           {/* Experience Section */}
@@ -152,17 +197,26 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
             id="experience"
             className="section-height md:mb-8 flex flex-col justify-center items-start px-12 bg-gradient-to-br from-[#232526] to-[#414345] md:rounded-2xl shadow-lg"
           >
-            <h2 className="text-4xl font-bold text-[#60cc87] mb-4">{contentData.experience.title}</h2>
-            <div className="space-y-6">
-              {contentData.experience.items.map((exp, idx) => (
-                <div key={idx}>
-                  <h3 className="text-2xl font-semibold text-[#60cc87]">{exp.title}</h3>
-                  <span className="text-white text-sm">{exp.period}</span>
-                  <p className="text-white mt-2">
-                    {exp.description}
-                  </p>
-                </div>
-              ))}
+            <div
+            >
+              <h2 className="text-4xl font-bold text-[#60cc87] mb-4">{contentData.experience.title}</h2>
+              <div className="space-y-6"
+              style={{
+                opacity: visibleSections.has('experience') ? 1 : 0,
+                transform: visibleSections.has('experience') ? 'translateY(0)' : 'translateY(30px)',
+                transition: transitionValue,
+              }}
+              >
+                {contentData.experience.items.map((exp, idx) => (
+                  <div key={idx}>
+                    <h3 className="text-2xl font-semibold text-[#60cc87]">{exp.title}</h3>
+                    <span className="text-white text-sm">{exp.period}</span>
+                    <p className="text-white mt-2">
+                      {exp.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </section>
 
@@ -171,8 +225,15 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
             id="connect"
             className="section-height md:mb-8 flex flex-col justify-center items-start px-12 bg-[#232526] md:rounded-2xl shadow-lg"
           >
-            <h2 className="text-4xl font-bold text-[#60cc87] mb-6">Connect With Me</h2>
-            <form className="w-full max-w-2xl space-y-4" onSubmit={(e) => { 
+              <h2 className="text-4xl font-bold text-[#60cc87] mb-6">Connect With Me</h2>
+              <form className="w-full max-w-2xl space-y-4" 
+                style={{
+                  opacity: visibleSections.has('connect') ? 1 : 0,
+                  transform: visibleSections.has('connect') ? 'translateY(0)' : 'translateY(30px)',
+                  transition: transitionValue,
+                  width: '100%',
+                }}
+              onSubmit={(e) => { 
               e.preventDefault(); 
               const formData = new FormData(e.currentTarget);
               const googleFormData = new FormData();
