@@ -49,7 +49,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
               id="home"
               className="section-height md:mb-8 flex flex-col justify-center items-start px-12 md:rounded-2xl shadow-lg"
               style={{
-                background: "linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, #232526 100%)",
+                background: "linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, #232526 100%)",
                 backdropFilter: "blur(20px)",
                 WebkitBackdropFilter: "blur(20px)",
               }}

@@ -51,3 +51,16 @@ body {
     min-height: calc(var(--app-height) - 4rem);
   }
 }
+
+
+@keyframes heightExpand {
+  from {
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  to {
+    max-height: 50vh;
+    overflow: visible;
+  }
+}
