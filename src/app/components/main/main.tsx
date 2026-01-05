@@ -1,5 +1,7 @@
 import { Button, Card, CardContent, CardMedia, Typography, Grid } from '@mui/material';
 import React, { RefObject, useEffect, useState } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import AOS CSS
 import contentData from '@/data/content.json';
 
 interface MainProps {
@@ -11,25 +13,36 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
     const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
     const transitionValue = 'opacity 0.8s ease-out, transform 0.8s ease-out';
 
+    // useEffect(() => {
+    //     const observer = new IntersectionObserver(
+    //         (entries) => {
+    //             entries.forEach((entry) => {
+    //                 if (entry.isIntersecting) {
+    //                     setVisibleSections((prev) => new Set(prev).add(entry.target.id));
+    //                 }
+    //             });
+    //         },
+    //         { threshold: 0.1 }
+    //     );
+
+    //     const sections = document.querySelectorAll('section[id]');
+    //     sections.forEach((section) => observer.observe(section));
+
+    //     return () => {
+    //         sections.forEach((section) => observer.unobserve(section));
+    //     };
+    // }, []);
+
+
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setVisibleSections((prev) => new Set(prev).add(entry.target.id));
-                    }
-                });
-            },
-            { threshold: 0.1 }
-        );
-
-        const sections = document.querySelectorAll('section[id]');
-        sections.forEach((section) => observer.observe(section));
-
-        return () => {
-            sections.forEach((section) => observer.unobserve(section));
-        };
-    }, []);
+    AOS.init({
+      // Optional configuration options
+      duration: 1000, // values from 0 to 3000, step 50ms
+      once: false, // whether animation should happen only once - default
+    });
+    // Call refresh to recalculate positions if content changes dynamically
+    AOS.refresh(); 
+  }, []);
 
     return (
         <div
@@ -56,11 +69,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
             >
               <div 
                 className="flex flex-col gap-8"
-                style={{
-                  opacity: visibleSections.has('home') ? 1 : 0,
-                  transform: visibleSections.has('home') ? 'translateY(0)' : 'translateY(40px)',
-                  transition: transitionValue,
-                }}
+                data-aos="fade-up"
               >
                 <h1
                   className="text-7xl font-extrabold tracking-tight"
@@ -125,12 +134,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
             className="section-height md:mb-8 flex flex-col justify-center items-start p-12 bg-gradient-to-br from-[#232526] to-[#414345] md:rounded-2xl shadow-lg"
             >
               <h2 className="text-4xl font-bold text-[#60cc87] mb-4">{contentData.projects.title}</h2>
-            <div
-            style={{
-                opacity: visibleSections.has('projects') ? 1 : 0,
-                transform: visibleSections.has('projects') ? 'translateY(0)' : 'translateY(30px)',
-                transition: transitionValue,
-              }}>
+            <div data-aos="fade-up">
               <Grid container spacing={4}>
                 {projects.map((p, idx) => (
                   <Grid size={{ xs: 12, sm: 6, md: 4 }} key={idx}>
@@ -178,11 +182,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
             >
               <h2 className="text-4xl font-bold text-[#60cc87] mb-4">{contentData.achievements.title}</h2>
               <ul className="list-disc pl-6 text-white text-lg"
-                style={{
-                  opacity: visibleSections.has('achievements') ? 1 : 0,
-                  transform: visibleSections.has('achievements') ? 'translateY(0)' : 'translateY(30px)',
-                  transition: transitionValue,
-                }}>
+                data-aos="fade-up">
                 {contentData.achievements.items.map((achievement, idx) => (
                   <li key={idx}>
                     <span className="font-semibold text-[#60cc87]">{achievement.label}</span> {achievement.description}
@@ -201,11 +201,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
             >
               <h2 className="text-4xl font-bold text-[#60cc87] mb-4">{contentData.experience.title}</h2>
               <div className="space-y-6"
-              style={{
-                opacity: visibleSections.has('experience') ? 1 : 0,
-                transform: visibleSections.has('experience') ? 'translateY(0)' : 'translateY(30px)',
-                transition: transitionValue,
-              }}
+                data-aos="fade-up"
               >
                 {contentData.experience.items.map((exp, idx) => (
                   <div key={idx}>
@@ -227,12 +223,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
           >
               <h2 className="text-4xl font-bold text-[#60cc87] mb-6">Connect With Me</h2>
               <form className="w-full max-w-2xl space-y-4" 
-                style={{
-                  opacity: visibleSections.has('connect') ? 1 : 0,
-                  transform: visibleSections.has('connect') ? 'translateY(0)' : 'translateY(30px)',
-                  transition: transitionValue,
-                  width: '100%',
-                }}
+                data-aos="fade-up"
               onSubmit={(e) => { 
               e.preventDefault(); 
               const formData = new FormData(e.currentTarget);

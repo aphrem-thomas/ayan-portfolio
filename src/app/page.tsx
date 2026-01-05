@@ -15,6 +15,7 @@ export default function Home() {
 
 
   const [activeSection, setActiveSection] = useState<string>("home");
+  const [scrolledPixelDistance, setScrolledPixelDistance] = useState<number>(0);
   const [initialWindowHeight, setInitialWindowHeight] = useState<number>(
     typeof window !== "undefined" ? window.innerHeight : 0
   );
@@ -39,6 +40,7 @@ export default function Home() {
     handleScroll();
     const scrollDistance = Math.max(window.scrollY, 0);
     console.log("scrollDistance::::", window.scrollY);
+    setScrolledPixelDistance(scrollDistance);
     const newHeight = Math.max((initialWindowHeight - scrollDistance) - heightOffset, 60);
     setWindowHeight(newHeight);
     setScrolledViewHeight(scrollDistance > initialWindowHeight);
@@ -113,7 +115,7 @@ export default function Home() {
       style={{ fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif", scrollBehavior: "smooth" }}
       ref={topContainerRef}
     >
-      <DecoBG />
+      <DecoBG scrolledPixelDistance={scrolledPixelDistance} />
       <div className="main-container md:grid md:grid-cols-[5fr_9fr_1fr] 2xl:grid-cols-[4fr_9fr_1fr] 2xl:max-w-[80%] w-full">
       {/* Left Profile Section */}
       <div className="hidden md:block">
