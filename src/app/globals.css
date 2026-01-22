@@ -64,3 +64,15 @@ body {
     overflow: visible;
   }
 }
+
+.homeSection{
+ 
+}
+
+@media (max-width: 767px) {
+  .homeSection{
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, #232526 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+}

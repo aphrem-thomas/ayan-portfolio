@@ -3,37 +3,17 @@ import React, { RefObject, useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import AOS CSS
 import contentData from '@/data/content.json';
+import { profile } from 'console';
 
 interface MainProps {
   containerRef: RefObject<HTMLDivElement | null>;
 }
 
-const Main: React.FC<MainProps> = ({containerRef}) => {
+const MainMob: React.FC<MainProps> = ({containerRef}) => {
+    const ACCENT_COLOR = '#60cc87';
     const projects = contentData.projects.items;
     const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
     const transitionValue = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-
-    // useEffect(() => {
-    //     const observer = new IntersectionObserver(
-    //         (entries) => {
-    //             entries.forEach((entry) => {
-    //                 if (entry.isIntersecting) {
-    //                     setVisibleSections((prev) => new Set(prev).add(entry.target.id));
-    //                 }
-    //             });
-    //         },
-    //         { threshold: 0.1 }
-    //     );
-
-    //     const sections = document.querySelectorAll('section[id]');
-    //     sections.forEach((section) => observer.observe(section));
-
-    //     return () => {
-    //         sections.forEach((section) => observer.unobserve(section));
-    //     };
-    // }, []);
-
-
     useEffect(() => {
     AOS.init({
       // Optional configuration options
@@ -60,7 +40,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
           {/* Home Section */}
             <section
               id="home"
-              className="section-height md:mb-8 flex flex-col justify-center items-start px-12 md:rounded-2xl shadow-lg"
+              className="homeSection md:hidden section-height flex flex-col justify-center items-start px-12 shadow-lg"
               style={{
                 background: "linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, #232526 100%)",
                 backdropFilter: "blur(20px)",
@@ -68,55 +48,30 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
               }}
             >
               <div 
-                className="flex flex-col gap-8"
+                className="flex flex-col gap-8 text-white"
                 data-aos="fade-up"
               >
                 <h1
-                  className="text-7xl font-extrabold tracking-tight"
+                  className="text-8xl 2xl:text-[10rem] tracking-tight"
                   style={{
-                    background: "linear-gradient(180deg, #60cc87 0%, #ffffff 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                    color: "transparent",
                     fontFamily: "'Poppins', 'Montserrat', 'Inter', sans-serif",
                     letterSpacing: "-0.02em",
                   }}
                 >
-                  {contentData.home.greeting}
+                  {contentData.home.greeting}{" "}<span className='text-[#60cc87]'>{contentData.profile.name}</span>{","}
                 </h1>
                 <p className="text-lg text-white max-w-xl">
                     {contentData.home.introduction}
                 </p>
-                {/* <Button
-                  variant="outlined"
-                  sx={{
-                    backgroundColor: "transparent",
-                    color: "#60cc87",
-                    border: "2px solid #60cc87",
-                    borderRadius: "30px",
-                    fontWeight: "bold",
-                    width: "300px",
-                    fontSize: "1.1rem",
-                    fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif",
-                    "&:hover": {
-                      backgroundColor: "#232526",
-                      borderColor: "#4bbd74",
-                      color: "#4bbd74",
-                    },
-                  }}
-                >
-                  View My Work
-                </Button> */}
               </div>
             </section>
 
-          {/* About Me Section */}
-            {/* <section
+          {/* About Me Section desktop only
+            <section
             id="about"
-            className="section-height md:mb-8 flex flex-col justify-center items-start px-12 bg-[#232526] md:rounded-2xl shadow-lg"
+            className="section-height md:mb-8 flex flex-col justify-center items-start px-12 shadow-lg"
             >
-            <h2 className="text-4xl font-bold text-[#60cc87] mb-4">About Me</h2>
+            <h2 className="text-4xl font-bold mb-4" style={{ color: ACCENT_COLOR }}>About Me</h2>
             <p className="text-white text-lg mb-4 max-w-xl">
               I’m a developer with a background in aerospace engineering. My journey began with curiosity about flight and technology, leading me to combine both passions in innovative projects. I enjoy collaborating, learning, and solving real-world problems through code.
             </p>
@@ -131,21 +86,30 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
           {/* Projects Section */}
             <section
             id="projects"
-            className="section-height md:mb-8 flex flex-col justify-center items-start p-12 bg-gradient-to-br from-[#232526] to-[#414345] md:rounded-2xl shadow-lg"
+            className="section-height md:mb-8 flex flex-col justify-center items-start p-12 bg-gradient-to-br from-[#232526] to-[#414345] md:bg-transparent shadow-lg"
             >
-              <h2 className="text-4xl font-bold text-[#60cc87] mb-4">{contentData.projects.title}</h2>
-            <div data-aos="fade-up">
+              <h2 data-aos="fade-up" className="text-4xl font-bold mb-4" style={{ color: ACCENT_COLOR }}>{contentData.projects.title}</h2>
+            <div>
               <Grid container spacing={4}>
                 {projects.map((p, idx) => (
-                  <Grid size={{ xs: 12, sm: 6, md: 4 }} key={idx}>
+                  <Grid size={{ xs: 12, sm: 6, md: 6 }} key={idx}>
                     <Card
+                      data-aos="fade-up"
                       sx={{
                         backgroundColor: "#232526",
                         color: "#ffffff",
                         borderRadius: 3,
                         boxShadow: 6,
+                        cursor: "pointer",
                         border: "1px solid #414345",
                         height: "100%",
+                        transformOrigin: "center",
+                        transition: "transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease",
+                        "&:hover": {
+                          transform: "translateY(-8px) scale(1.02)",
+                          boxShadow: 12,
+                          borderColor: ACCENT_COLOR,
+                        },
                       }}
                     >
                       <CardMedia
@@ -158,7 +122,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
                       <CardContent>
                         <Typography
                           variant="h6"
-                          sx={{ color: "#60cc87", fontWeight: 700 }}
+                          sx={{ color: ACCENT_COLOR, fontWeight: 700 }}
                         >
                           {p.title}
                         </Typography>
@@ -173,19 +137,60 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
             </div>
             </section>
 
-          {/* Achievements Section */}
+
+            {/* Education Section */}
           <section
-            id="achievements"
-            className="section-height md:mb-8 flex flex-col justify-center items-start px-12 bg-[#232526] md:rounded-2xl shadow-lg"
+            id="education"
+            className="section-height flex flex-col justify-center items-start p-12 bg-[#232526]"
           >
             <div
             >
-              <h2 className="text-4xl font-bold text-[#60cc87] mb-4">{contentData.achievements.title}</h2>
-              <ul className="list-disc pl-6 text-white text-lg"
-                data-aos="fade-up">
+              <h2 className="text-6xl font-bold mb-6" style={{ color: ACCENT_COLOR }}>{contentData.education.title}</h2>
+              <div className="relative pl-8"
+              >
+                {/* Timeline vertical line */}
+                <div className="absolute left-0 top-0 bottom-0 w-[2px] " style={{ left: '15px', backgroundColor: ACCENT_COLOR }}></div>
+                
+                {contentData.education.items.map((edu, idx) => (
+                  <div key={idx} className="relative pb-12 last:pb-0" data-aos="fade-left" data-aos-delay={idx * 100}>
+                    {/* Timeline node/milestone */}
+                    <div 
+                      className="absolute left-0 w-8 h-8 rounded-full border-4 bg-[#232526]"
+                      style={{ 
+                        borderColor: ACCENT_COLOR,
+                        left: '-33px',
+                        top: '4px'
+                      }}
+                    >
+                      <div className="absolute inset-2 rounded-full" style={{ backgroundColor: ACCENT_COLOR }}></div>
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="ml-12">
+                      <h3 className="text-2xl font-semibold" style={{ color: ACCENT_COLOR }}>{edu.institution}</h3>
+                      <span className="text-white text-sm">{edu.period}</span>
+                      <p className="text-white mt-2">
+                        {edu.degree} - {edu.fieldOfStudy}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Achievements Section */}
+          <section
+            id="achievements"
+            className="section-height md:mb-8 flex flex-col justify-center items-start px-12 bg-[#232526] md:bg-transparent shadow-lg"
+          >
+            <div
+            >
+              <h2 className="text-4xl font-bold mb-4" style={{ color: ACCENT_COLOR }}>{contentData.achievements.title}</h2>
+              <ul className="list-disc pl-6 text-white text-lg">
                 {contentData.achievements.items.map((achievement, idx) => (
-                  <li key={idx}>
-                    <span className="font-semibold text-[#60cc87]">{achievement.label}</span> {achievement.description}
+                  <li key={idx} data-aos="fade-up" data-aos-delay={idx * 100} >
+                    <span className="font-semibold" style={{ color: ACCENT_COLOR }}>{achievement.label}</span> {achievement.description}
                   </li>
                 ))}
               </ul>
@@ -199,13 +204,12 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
           >
             <div
             >
-              <h2 className="text-4xl font-bold text-[#60cc87] mb-4">{contentData.experience.title}</h2>
+              <h2 className="text-4xl font-bold mb-4" style={{ color: ACCENT_COLOR }}>{contentData.experience.title}</h2>
               <div className="space-y-6"
-                data-aos="fade-up"
               >
                 {contentData.experience.items.map((exp, idx) => (
-                  <div key={idx}>
-                    <h3 className="text-2xl font-semibold text-[#60cc87]">{exp.title}</h3>
+                  <div key={idx} data-aos="fade-left" data-aos-delay={idx * 100} >
+                    <h3 className="text-2xl font-semibold" style={{ color: ACCENT_COLOR }}>{exp.title}</h3>
                     <span className="text-white text-sm">{exp.period}</span>
                     <p className="text-white mt-2">
                       {exp.description}
@@ -221,7 +225,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
             id="connect"
             className="section-height md:mb-8 flex flex-col justify-center items-start px-12 bg-[#232526] md:rounded-2xl shadow-lg"
           >
-              <h2 className="text-4xl font-bold text-[#60cc87] mb-6">Connect With Me</h2>
+              <h2 className="text-4xl font-bold mb-6" style={{ color: ACCENT_COLOR }}>Connect With Me</h2>
               <form className="w-full max-w-2xl space-y-4" 
                 data-aos="fade-up"
               onSubmit={(e) => { 
@@ -252,7 +256,8 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
                   type="text"
                   id="name"
                   name="name"
-                  className="w-full px-4 py-3 bg-[#414345] text-white rounded-lg border border-[#60cc87] focus:outline-none focus:ring-2 focus:ring-[#60cc87]"
+                  className="w-full px-4 py-3 bg-[#414345] text-white rounded-lg border focus:outline-none focus:ring-2"
+                  style={{ borderColor: ACCENT_COLOR, '--tw-ring-color': ACCENT_COLOR } as React.CSSProperties}
                   placeholder="Your name"
                 />
               </div>
@@ -264,7 +269,8 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
                   type="tel"
                   id="phone"
                   name="phone"
-                  className="w-full px-4 py-3 bg-[#414345] text-white rounded-lg border border-[#60cc87] focus:outline-none focus:ring-2 focus:ring-[#60cc87]"
+                  className="w-full px-4 py-3 bg-[#414345] text-white rounded-lg border focus:outline-none focus:ring-2"
+                  style={{ borderColor: ACCENT_COLOR, '--tw-ring-color': ACCENT_COLOR } as React.CSSProperties}
                   placeholder="Your phone number"
                 />
               </div>
@@ -276,7 +282,8 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
                   type="email"
                   id="email"
                   name="email"
-                  className="w-full px-4 py-3 bg-[#414345] text-white rounded-lg border border-[#60cc87] focus:outline-none focus:ring-2 focus:ring-[#60cc87]"
+                  className="w-full px-4 py-3 bg-[#414345] text-white rounded-lg border focus:outline-none focus:ring-2"
+                  style={{ borderColor: ACCENT_COLOR, '--tw-ring-color': ACCENT_COLOR } as React.CSSProperties}
                   placeholder="Your email"
                 />
               </div>
@@ -288,7 +295,8 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
                   id="message"
                   name="message"
                   rows={5}
-                  className="w-full px-4 py-3 bg-[#414345] text-white rounded-lg border border-[#60cc87] focus:outline-none focus:ring-2 focus:ring-[#60cc87] resize-none"
+                  className="w-full px-4 py-3 bg-[#414345] text-white rounded-lg border focus:outline-none focus:ring-2 resize-none"
+                  style={{ borderColor: ACCENT_COLOR, '--tw-ring-color': ACCENT_COLOR } as React.CSSProperties}
                   placeholder="Your message"
                 />
               </div>
@@ -296,7 +304,7 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
                 variant="contained"
                 type="submit"
                 sx={{
-                  backgroundColor: "#60cc87",
+                  backgroundColor: ACCENT_COLOR,
                   color: "#232526",
                   borderRadius: "8px",
                   fontWeight: "bold",
@@ -317,4 +325,4 @@ const Main: React.FC<MainProps> = ({containerRef}) => {
     );
 };
 
-export default Main;
+export default MainMob;

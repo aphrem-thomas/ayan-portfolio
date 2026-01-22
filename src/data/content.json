@@ -4,10 +4,10 @@
     "lastName": "Asish",
     "title": "Aerospace",
     "subtitle": "enthusiast",
-    "email": "ayaan.asish@gmail.com",
+    "email": "",
     "school": "Student at WCSS Ottawa",
-    "github": "https://github.com/ayaan",
-    "linkedin": "https://linkedin.com/in/ayaan"
+    "github": "https://github.com/AyaanAsish",
+    "linkedin": "https://www.linkedin.com/in/ayaan-asish"
   },
   "navigation": [
     { "id": "home", "title": "Home" },
@@ -23,30 +23,31 @@
   "about": {
     "title": "About Me",
     "description": "I'm a developer with a background in aerospace engineering. My journey began with curiosity about flight and technology, leading me to combine both passions in innovative projects. I enjoy collaborating, learning, and solving real-world problems through code.",
-    "skills": [
-      "React, Next.js, TypeScript, Node.js",
-      "UI/UX Design & Prototyping",
-      "Cloud & DevOps Enthusiast",
-      "Open Source Contributor"
+    "technicals": [
+      "Python", "Java", "C/C++", "AI agents" ,"Scratch", "HTML", "CAD", "Arduino", "Electronic circuitry"
+    ],
+    "softSkills": [
+      "Leadership", " Public speaking", "Curiosity & adaptability", "Strategic thinking"
     ]
   },
   "projects": {
     "title": "Projects",
     "items": [
       {
-        "title": "AI Flight Planner",
-        "description": "Built an AI-powered flight planning tool that optimizes routes and fuel usage using weather and airspace data.",
-        "image": "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=1200&q=60"
+        "title": "Composition Assistant Agent",
+        "description": "Built an AI agent that can modify a wave file using prompts from the user",
+        "image": "https://img.youtube.com/vi/uuJAgXmHvRA/hqdefault.jpg",
+        "demo": "https://youtu.be/uuJAgXmHvRA?si=2qrw4FkZMpLcvPtV"
       },
       {
-        "title": "Rocketry Telemetry Dashboard",
-        "description": "Created a live telemetry dashboard for rocketry experiments to visualize altitude, velocity, and thrust in real time.",
-        "image": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1200&q=60"
+        "title": "Gmail Autoresponder Agent",
+        "description": "Ability to find and reply to emails with LLM auto-generated responses with casual, normal and proffesional tones",
+        "image": "https://github.com/AyaanAsish/Autoresponder-agent"
       },
       {
-        "title": "STEM Club Website",
-        "description": "Developed a responsive website for the STEM club to showcase events, projects, and resources.",
-        "image": "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=1200&q=60"
+        "title": "Chess Game, In Java",
+        "description": "Built a fully functional chess game with engine and LAN play capabilities; with self-made music",
+        "image": "https://github.com/AyaanAsish/Chess"
       }
     ]
   },
@@ -54,20 +55,20 @@
     "title": "Achievements",
     "items": [
       {
-        "label": "Winner, XYZ--- Hackathon 2025:",
-        "description": "Developed an AI-powered flight planner."
+        "label": "2nd Place – IEEE Lego Robotics Sumo Competition: ",
+        "description": "Developed a LEGO EV3 powered SUMO robot, using scratch, that's ready for battle."
       },
       {
-        "label": "Dean's List, XYZ University (2021-2024):",
-        "description": "Recognized for academic excellence."
+        "label": "Euro Challenge (2024): ",
+        "description": "Presented innovative solutions to the German Consulate on energy sustainability, population aging, and declining automobile sales."
       },
       {
-        "label": "Published Research:",
-        "description": "Authored a paper on Web Performance Optimization in IEEE Journal."
+        "label": "Co-President of WCSS STEM Club: ",
+        "description": "Organized school-wide STEM events."
       },
       {
-        "label": "Open Source:",
-        "description": "Contributor to several aviation and tech projects."
+        "label": "WCSS Badminton Team:",
+        "description": "Junior Boys Doubles in my sophomore year"
       }
     ]
   },
@@ -75,29 +76,71 @@
     "title": "Experience",
     "items": [
       {
-        "title": "Frontend Developer, ABC Corp",
-        "period": "2023 - Present",
-        "description": "Building responsive web interfaces, optimizing user experience, and collaborating with cross-functional teams on product launches."
+        "title": "Robotics Instructor – Jack Donohue Public School, Ottawa, ON",
+        "period": "Nov 2023 – May 2024",
+        "description": "Using prior experience, taking a leadership role at Robotics club, I led enthusiastic students to better performances at the IEEE LEGO Robotics competition."
       },
       {
-        "title": "Intern, DEF Solutions",
-        "period": "Summer 2022",
-        "description": "Developed internal tools, automation scripts, and contributed to process improvements in the engineering team."
-      },
-      {
-        "title": "Freelance Projects",
-        "period": "2021 - 2023",
-        "description": "Delivered custom web solutions for startups, including e-commerce platforms and data dashboards."
+        "title": "Co-Instructor, STEM Program – University of Ottawa, Ottawa, ON ",
+        "period": "Aug 2024",
+        "description": "Helping organize activities and events to provide learning opportunities for kids with a passion in STEM."
       }
     ]
   },
   "mobile": {
-    "salutation": "hi I am a student and \n an aerospace enthusiast",
-    "punchline": "Dreaming of rockets, building apps for now"
+    "salutation": "hi, I am a high school student and \n an aerospace enthusiast",
+    "punchline": "Aiming for the skis, with today's tech in mind"
   },
   "buttons": {
     "connect": "Let's Connect",
     "connectWithMe": "Connect with Me",
     "viewMyWork": "View My Work"
+  },
+  "education":{
+    "title": "Education",
+    "items": [
+      {
+        "degree": "High School Diploma",
+        "institution": "West Carleton Secondary School",
+        "fieldOfStudy": "General Studies",
+        "period": "2020 - Present",
+        "description": "Focusing on STEM subjects with extracurricular involvement in aerospace and technology clubs."
+      },
+      {
+        "degree": "Rocketry Course",
+        "institution": "706 Snowy Owl Squadron",
+        "fieldOfStudy": "Aerospace Engineering",
+        "period": "2022",
+        "description": "Completed a comprehensive rocketry course covering design, construction, and launch of model rockets."
+      },  
+      {
+        "degree": "STEM Workshops",
+        "institution": "Various Organizations",
+        "fieldOfStudy": "Science and Technology",
+        "period": "2021 - 2023",
+        "description": "Participated in multiple workshops and seminars focused on advancements in STEM fields."
+      },
+      {
+        "degree": "High School Diploma",
+        "institution": "West Carleton Secondary School",
+        "fieldOfStudy": "General Studies",
+        "period": "2020 - Present",
+        "description": "Focusing on STEM subjects with extracurricular involvement in aerospace and technology clubs."
+      },
+      {
+        "degree": "Rocketry Course",
+        "institution": "706 Snowy Owl Squadron",
+        "fieldOfStudy": "Aerospace Engineering",
+        "period": "2022",
+        "description": "Completed a comprehensive rocketry course covering design, construction, and launch of model rockets."
+      },  
+      {
+        "degree": "STEM Workshops",
+        "institution": "Various Organizations",
+        "fieldOfStudy": "Science and Technology",
+        "period": "2021 - 2023",
+        "description": "Participated in multiple workshops and seminars focused on advancements in STEM fields."
+      }
+    ]
   }
 }

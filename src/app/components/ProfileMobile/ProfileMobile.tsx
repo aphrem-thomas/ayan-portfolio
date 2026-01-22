@@ -26,6 +26,7 @@ const ProfileMobile = ({
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-end",
+        color: "white",
       }}
     >
         <div className="name text-right mb-8 flex-1 flex-col justify-start items-end pr-8 pt-8">

@@ -19,7 +19,6 @@ const DecoBG: React.FC<DecoBGProps> = ({ scrolledPixelDistance }) => {
       </div>
       <div 
         className="md:hidden flex items-start h-dvh absolute left-0 top-0 w-full -z-10"
-        style={{ transform: `translateY(${(scrolledPixelDistance || 0) / 6}px)` }}
       >
         <img src="/ayaanProfileNew.jpg" alt="background" className="fixed inset-0 h-full -z-10 w-full object-cover"/>
         <div className="dummyDiv h-screen bg-[#1c1c1c]"></div>

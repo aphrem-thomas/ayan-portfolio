@@ -1,11 +1,12 @@
 'use client';
 import { useEffect, useRef, useState } from "react";
-import Main from "./components/main/main";
 import DecoBG from "./components/DecoBG/decoBg";
 import ProfileCard from "./components/ProfileCard/ProfileCard";
 import NavBar from "./components/NavBar/NavBar";
 import ProfileMobile from "./components/ProfileMobile/ProfileMobile";
 import contentData from "@/data/content.json";
+import MainDsk from "./components/mainDsk/mainDsk";
+import MainMob from "./components/mainMob/mainMob";
 
 export default function Home() {
   const sectionIds = contentData.navigation.map(nav => nav.id);
@@ -125,7 +126,8 @@ export default function Home() {
         <ProfileMobile windowHeight={windowHeight} isScrolledDoubleHeight={isScrolledDoubleHeight} compact={scrolledViewHeight}/>
       </div>
       {/* Main Content Section */}
-      <Main containerRef={mainContentRef}/>
+      <div className="hidden md:block w-full"><MainDsk containerRef={mainContentRef}/></div>
+      <div className="md:hidden w-full"><MainMob containerRef={mainContentRef}/></div>
       {/* Navigation Section (least space) */}
       {/* {isScrolledDoubleHeight && <div className="md:hidden">
         <NavBar activeSection={activeSection} setActiveSection={setActiveSection}/>

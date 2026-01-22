@@ -45,25 +45,22 @@ const ProfileCard = ({
     >
       <div
         className={`profileContainer w-full ${
-             "flex flex-col items-center justify-center p-6 gap-6"
+             "flex flex-col items-center justify-center p-12 2xl:p-18 md:gap-4 2xl:gap-6"
         }`}
         style={{
-          padding: "24px",
-          transition:
-            "transform 700ms cubic-bezier(.2,.9,.35,1), box-shadow 300ms ease",
-          boxShadow: "0 4px 32px 0 rgba(60,220,135,0.10)",
+          
           background: "rgba(30, 31, 32, 0.1)",
           backdropFilter: "blur(4px) saturate(180%)",
           WebkitBackdropFilter: "blur(4px) saturate(180%)",
           border: "1.5px solid rgba(255, 255, 255, 0.15)",
           borderRadius: "16px",
-          height: "calc(var(--app-height) - 60px)",
+          height: "100%",
           width: "100%",
         }}
       >
         {/* COMPACT HORIZONTAL LAYOUT (image - name - button) */}
         <>
-          <div className="name_heading flex justify-center w-full items-center gap-4">
+          <div className="name_heading flex justify-between w-full items-center">
             <div
                 className="nameSection tracking-tight"
                 style={{
@@ -87,22 +84,22 @@ const ProfileCard = ({
               </div>
             </div>
 
-            <div className="profileImage w-full relative 2xl:mb-24 flex justify-center">
+            <div className="profileImage w-full relative flex justify-center ">
               <img
                 src="/ayaan_port.JPG"
-                className="object-cover rounded-full border-4 border-white/60 shadow-lg"
+                className="object-cover shadow-lg rounded-2xl"
                 style={{
-                  width: imgMax,
-                  height: imgMax,
                   boxShadow: "0 4px 24px 0 rgba(60, 220, 135, 0.10)",
                   background: "rgba(255,255,255,0.18)",
                   backdropFilter: "blur(4px)",
+                  width:"100%",
+                  aspectRatio: "1 / 1",
                 }}
               />
             </div>
 
-            <div className="infoSection flex flex-col items-center gap-1 mb-4 mt-8">
-              <p
+            <div className="infoSection flex flex-col items-center gap-1 mb-4 mt-4">
+              {/* <p
                 className="text-xl mb-3"
                 style={{
                   letterSpacing: "0.05em",
@@ -110,7 +107,7 @@ const ProfileCard = ({
                 }}
               >
                 {contentData.profile.email}
-              </p>
+              </p> */}
               <p
                 style={{
                   letterSpacing: "0.05em",
@@ -128,7 +125,7 @@ const ProfileCard = ({
                   rel="noopener noreferrer"
                 >
                   <Image
-                    src="/github.png"
+                    src="/githubnew.png"
                     alt="GitHub"
                     width={28}
                     height={28}
@@ -140,7 +137,7 @@ const ProfileCard = ({
                   rel="noopener noreferrer"
                 >
                   <Image
-                    src="/linkedin.svg"
+                    src="/linkedinnew.png"
                     alt="LinkedIn"
                     width={45}
                     height={45}
