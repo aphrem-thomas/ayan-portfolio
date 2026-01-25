@@ -36,18 +36,21 @@
       {
         "title": "Composition Assistant Agent",
         "description": "Built an AI agent that can modify a wave file using prompts from the user",
+        "detailedDescription": "Created an AI agent that utilizes OpenAI's Whisper API for transcribing audio files and the MusicGen model from Hugging Face to generate music based on user prompts. The agent processes an input wave file, transcribes its content, and then generates a modified version of the audio according to the user's specifications. This project showcases the integration of advanced AI models for audio processing and generation.",
         "image": "https://img.youtube.com/vi/uuJAgXmHvRA/hqdefault.jpg",
         "demo": "https://youtu.be/uuJAgXmHvRA?si=2qrw4FkZMpLcvPtV"
       },
       {
         "title": "Gmail Autoresponder Agent",
         "description": "Ability to find and reply to emails with LLM auto-generated responses with casual, normal and proffesional tones",
-        "image": "https://github.com/AyaanAsish/Autoresponder-agent"
+        "detailedDescription": "Developed an AI-powered Gmail autoresponder agent that automatically scans incoming emails and generates contextually appropriate replies using large language models (LLMs). The agent can tailor responses in various tones, including casual, normal, and professional, enhancing communication efficiency. This project demonstrates the application of AI in automating email management and improving user interaction.",
+        "image": "https://github.com/AyaanAsish/Autoresponder-agent.jpg"
       },
       {
         "title": "Chess Game, In Java",
         "description": "Built a fully functional chess game with engine and LAN play capabilities; with self-made music",
-        "image": "https://github.com/AyaanAsish/Chess"
+        "detailedDescription": "Developed a comprehensive chess game in Java, featuring a robust game engine capable of handling all standard chess rules and mechanics. The game supports LAN play, allowing users to compete against each other over a local network. Additionally, I composed original music for the game, enhancing the overall user experience. This project highlights my skills in Java programming, game development, and music composition.",
+        "image": "https://github.com/AyaanAsish/Chess.jpg"
       }
     ]
   },

@@ -55,7 +55,7 @@ const MainDsk: React.FC<MainProps> = ({containerRef}) => {
                 >
                   {contentData.home.greeting}{" "}<span style={{ color: ACCENT_COLOR }}>{contentData.profile.name}</span>{","}
                 </h1>
-                <p data-aos="fade-left"className="text-6xl 2xl:text-[6rem] mt-6 text-white/50 max-w-xl">
+                <p data-aos="fade-left"className="text-6xl 2xl:text-[6rem] mt-6 text-white/50">
                     {contentData.mobile.punchline}
                 </p>
               </div>

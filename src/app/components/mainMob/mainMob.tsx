@@ -152,7 +152,7 @@ const MainMob: React.FC<MainProps> = ({containerRef}) => {
                 <div className="absolute left-0 top-0 bottom-0 w-[2px] " style={{ left: '15px', backgroundColor: ACCENT_COLOR }}></div>
                 
                 {contentData.education.items.map((edu, idx) => (
-                  <div key={idx} className="relative pb-12 last:pb-0" data-aos="fade-left" data-aos-delay={idx * 100}>
+                  <div key={idx} className="relative pb-12 last:pb-0">
                     {/* Timeline node/milestone */}
                     <div 
                       className="absolute left-0 w-8 h-8 rounded-full border-4 bg-[#232526]"
@@ -166,7 +166,7 @@ const MainMob: React.FC<MainProps> = ({containerRef}) => {
                     </div>
                     
                     {/* Content */}
-                    <div className="ml-12">
+                    <div className="ml-12" data-aos="fade-right" data-aos-delay={idx * 100}>
                       <h3 className="text-2xl font-semibold" style={{ color: ACCENT_COLOR }}>{edu.institution}</h3>
                       <span className="text-white text-sm">{edu.period}</span>
                       <p className="text-white mt-2">
@@ -208,7 +208,7 @@ const MainMob: React.FC<MainProps> = ({containerRef}) => {
               <div className="space-y-6"
               >
                 {contentData.experience.items.map((exp, idx) => (
-                  <div key={idx} data-aos="fade-left" data-aos-delay={idx * 100} >
+                  <div key={idx} >
                     <h3 className="text-2xl font-semibold" style={{ color: ACCENT_COLOR }}>{exp.title}</h3>
                     <span className="text-white text-sm">{exp.period}</span>
                     <p className="text-white mt-2">
