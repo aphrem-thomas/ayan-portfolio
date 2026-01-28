@@ -38,23 +38,19 @@ const ProfileCard = ({
 
   return (
     <div
-      className="text-[#d1d1d1] w-full flex flex-col items-center p-12 sticky top-0"
+      className="text-[#d1d1d1] w-full flex flex-col items-center justify-center p-12 sticky top-0"
       style={{
         height: "100dvh",
       }}
     >
       <div
-        className={`profileContainer w-full ${
-             "flex flex-col items-center justify-center p-12 2xl:p-18 md:gap-4 2xl:gap-6"
-        }`}
-        style={{
-          
+        className={"profileContainer w-full flex flex-col items-center justify-center p-12 2xl:p-18 md:gap-4 h-full 2xl:h-3/4 2xl:gap-6"}
+        style={{ 
           background: "rgba(30, 31, 32, 0.1)",
           backdropFilter: "blur(4px) saturate(180%)",
           WebkitBackdropFilter: "blur(4px) saturate(180%)",
           border: "1.5px solid rgba(255, 255, 255, 0.15)",
           borderRadius: "16px",
-          height: "100%",
           width: "100%",
         }}
       >

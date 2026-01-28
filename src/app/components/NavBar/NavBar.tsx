@@ -2,7 +2,17 @@ import React from 'react';
 import contentData from '@/data/content.json';
 
 const NavBar: React.FC<{activeSection: string, setActiveSection: React.Dispatch<React.SetStateAction<string>>}> = ({activeSection, setActiveSection}) => {
-    const navLinks = contentData.navigation;
+    // Define all sections with their corresponding titles
+    const allNavLinks = [
+      { id: "home", title: "Home" },
+      { id: "about", title: "About Me" },
+      { id: "projects", title: "Projects" },
+      { id: "education", title: "Education" },
+      { id: "achievements", title: "Achievements" },
+      { id: "experience", title: "Experience" },
+      { id: "connect", title: "Connect With Me" }
+    ];
+    
     return (
        <div className="fixed bottom-10 right-10 md:flex md:items-center md:justify-center md:h-lvh">
         <div className="flex md:flex-col gap-6 p-4  md:w-[60px] md:py-8 md:px-2 z-20 rounded-4xl border border-white/50 items-center justify-center" style={{ 
@@ -17,7 +27,7 @@ const NavBar: React.FC<{activeSection: string, setActiveSection: React.Dispatch<
           backdropFilter: "blur(5px) saturate(180%)",
           WebkitBackdropFilter: "blur(5px) saturate(180%)",
            }}>
-        {navLinks.map((link) => (
+        {allNavLinks.map((link) => (
           <a
           key={link.id}
           href={`#${link.id}`}
@@ -76,6 +86,22 @@ const NavBar: React.FC<{activeSection: string, setActiveSection: React.Dispatch<
             />
             </svg>
           )}
+          {link.id === "education" && (
+            <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
+            <path
+              d="M12 3L2 8l10 5 10-5-10-5z"
+              stroke={activeSection === link.id ? "#60cc87" : "#fff"}
+              strokeWidth="1"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M2 13l10 5 10-5M6 10v7c0 2-2 3-4 3"
+              stroke={activeSection === link.id ? "#60cc87" : "#fff"}
+              strokeWidth="1"
+              strokeLinejoin="round"
+            />
+            </svg>
+          )}
           {link.id === "achievements" && (
             <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
             <circle
@@ -107,6 +133,16 @@ const NavBar: React.FC<{activeSection: string, setActiveSection: React.Dispatch<
               d="M16 3v4M8 3v4M9 13h6"
               stroke={activeSection === link.id ? "#60cc87" : "#fff"}
               strokeWidth="1"
+            />
+            </svg>
+          )}
+          {link.id === "connect" && (
+            <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
+            <path
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              stroke={activeSection === link.id ? "#60cc87" : "#fff"}
+              strokeWidth="1"
+              strokeLinejoin="round"
             />
             </svg>
           )}

@@ -4,6 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import AOS CSS
 import contentData from '@/data/content.json';
 import { profile } from 'console';
+import DetailsModal from '../DetailsModal/DetailsModal';
 
 interface MainProps {
   containerRef: RefObject<HTMLDivElement | null>;
@@ -14,6 +15,7 @@ const MainMob: React.FC<MainProps> = ({containerRef}) => {
     const projects = contentData.projects.items;
     const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
     const transitionValue = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    const [detailsModal, setDetailsModal] = useState<any>(null);
     useEffect(() => {
     AOS.init({
       // Optional configuration options
@@ -95,6 +97,7 @@ const MainMob: React.FC<MainProps> = ({containerRef}) => {
                   <Grid size={{ xs: 12, sm: 6, md: 6 }} key={idx}>
                     <Card
                       data-aos="fade-up"
+                      onClick={() => setDetailsModal(p)}
                       sx={{
                         backgroundColor: "#232526",
                         color: "#ffffff",
@@ -320,7 +323,7 @@ const MainMob: React.FC<MainProps> = ({containerRef}) => {
               </Button>
             </form>
           </section>
-
+                {detailsModal && <DetailsModal details={detailsModal} onClose={() => setDetailsModal(null)} />}
         </div>
     );
 };

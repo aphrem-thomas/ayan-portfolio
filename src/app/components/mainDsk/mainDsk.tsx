@@ -4,6 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import AOS CSS
 import contentData from '@/data/content.json';
 import { profile } from 'console';
+import DetailsModal from '../DetailsModal/DetailsModal';
 
 // Global accent color
 const ACCENT_COLOR = '#60cc87';
@@ -14,6 +15,7 @@ interface MainProps {
 
 const MainDsk: React.FC<MainProps> = ({containerRef}) => {
     const projects = contentData.projects.items;
+    const [detailsModal, setDetailsModal] = useState<any>(null);
     useEffect(() => {
     AOS.init({
       // Optional configuration options
@@ -91,6 +93,7 @@ const MainDsk: React.FC<MainProps> = ({containerRef}) => {
                   <Grid size={{ xs: 12, sm: 6, md: 6 }} key={idx}>
                     <Card
                       data-aos="fade-up"
+                       onClick={() => setDetailsModal(p)}
                       sx={{
                         backgroundColor: "transparent",
                         color: "#ffffff",
@@ -317,7 +320,7 @@ const MainDsk: React.FC<MainProps> = ({containerRef}) => {
             </form>
             </div>
           </section>
-
+  {detailsModal && <DetailsModal details={detailsModal} onClose={() => setDetailsModal(null)} />}
         </div>
     );
 };

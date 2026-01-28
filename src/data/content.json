@@ -13,8 +13,10 @@
     { "id": "home", "title": "Home" },
     { "id": "about", "title": "About Me" },
     { "id": "projects", "title": "Projects" },
+    { "id": "education", "title": "Education" },
     { "id": "achievements", "title": "Achievements" },
-    { "id": "experience", "title": "Experience" }
+    { "id": "experience", "title": "Experience" },
+    { "id": "connect", "title": "Connect With Me" }
   ],
   "home": {
     "greeting": "Hi there,",

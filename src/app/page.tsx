@@ -54,17 +54,15 @@ export default function Home() {
 
   const handleScroll = () => {
     let found = false;
-    const container = sectionRefs.current;
-    const scrollDistance = container ? container.scrollTop : window.scrollY;
-    console.log("scroll in handleScroll", scrollDistance);
     for (const id of sectionIds) {
       const section = sectionRefs.current[id];
       if (section) {
          const rect = section.getBoundingClientRect();
         if (
           rect.top <= window.innerHeight &&
-          rect.bottom >= window.innerHeight
+          rect.bottom >= (window.innerHeight/2)
         ) {
+          console.log("Setting active section to:", id);
           if (activeSection !== id) {
             setActiveSection(id);
           }
