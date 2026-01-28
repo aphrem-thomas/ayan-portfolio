@@ -40,7 +40,6 @@ export default function Home() {
   const topContainerHandleScroll = () => {
     handleScroll();
     const scrollDistance = Math.max(window.scrollY, 0);
-    console.log("scrollDistance::::", window.scrollY);
     setScrolledPixelDistance(scrollDistance);
     const newHeight = Math.max((initialWindowHeight - scrollDistance) - heightOffset, 60);
     setWindowHeight(newHeight);
@@ -62,7 +61,6 @@ export default function Home() {
           rect.top <= window.innerHeight &&
           rect.bottom >= (window.innerHeight/2)
         ) {
-          console.log("Setting active section to:", id);
           if (activeSection !== id) {
             setActiveSection(id);
           }

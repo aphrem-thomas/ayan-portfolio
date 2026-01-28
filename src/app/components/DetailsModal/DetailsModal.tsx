@@ -17,6 +17,14 @@ const DetailsModal = ({
     onClose={onClose}
     aria-labelledby="modal-modal-title"
     aria-describedby="modal-modal-description"
+    slotProps={{
+      backdrop: {
+        sx: {
+          backdropFilter: 'blur(8px)',
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        }
+      }
+    }}
 >
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div
@@ -26,9 +34,10 @@ const DetailsModal = ({
           border: "1.5px solid rgba(255, 255, 255, 0.15)",
         }}
       >
-        <button
+        <div className="w-full flex justify-end">
+          <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+          className=" text-gray-400 hover:text-white transition-colors"
           aria-label="Close modal"
         >
           <svg
@@ -46,7 +55,9 @@ const DetailsModal = ({
             />
           </svg>
         </button>
-        <h2 className="text-2xl font-bold mb-4">{details.title}</h2>
+        </div>
+        
+        <h1 className="text-3xl font-bold mb-4">{details.title}</h1>
         {details.image && (
           <div className="mb-4">
             <img
