@@ -61,16 +61,16 @@ const DetailsModal = ({
         <p className="mb-4">{details.detailedDescription || details.description}</p>
         {details.demo && (
           <div className="mb-4">
-            <iframe
-              width="100%"
-              height="315"
-              src={details.demo}
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="rounded"
-            ></iframe>
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                className="absolute top-0 left-0 w-full h-full rounded"
+                src={`https://www.youtube.com/embed/${details.demo.split('v=')[1]?.split('&')[0] || details.demo.split('/').pop()}`}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
           </div>
         )}
       </div>
