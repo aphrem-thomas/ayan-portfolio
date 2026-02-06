@@ -33,30 +33,50 @@
     ]
   },
   "projects": {
+    "showProjects": true,
     "title": "Projects",
     "items": [
       {
         "title": "Composition Assistant Agent",
+        "thumbnail": "https://img.youtube.com/vi/uuJAgXmHvRA/hqdefault.jpg",
         "description": "Built an AI agent that can modify a wave file using prompts from the user",
         "detailedDescription": "Created an AI agent that utilizes OpenAI's Whisper API for transcribing audio files and the MusicGen model from Hugging Face to generate music based on user prompts. The agent processes an input wave file, transcribes its content, and then generates a modified version of the audio according to the user's specifications. This project showcases the integration of advanced AI models for audio processing and generation.",
-        "image": "https://img.youtube.com/vi/uuJAgXmHvRA/hqdefault.jpg",
+        "images": [{
+          "image":"https://img.youtube.com/vi/uuJAgXmHvRA/hqdefault.jpg",
+          "description": "A demo of the composition assistant agent in action, showcasing its ability to modify a wave file based on user prompts."
+         },
+         {
+          "image":"https://source.unsplash.com/random/800x600",
+          "description": "A screenshot of the code implementation for the composition assistant agent, highlighting the use of OpenAI's Whisper API and Hugging Face's MusicGen model."
+        }],
         "demo": "https://youtu.be/uuJAgXmHvRA?si=2qrw4FkZMpLcvPtV"
       },
       {
         "title": "Gmail Autoresponder Agent",
+        "thumbnail": "https://source.unsplash.com/random/800x600",
         "description": "Ability to find and reply to emails with LLM auto-generated responses with casual, normal and proffesional tones",
         "detailedDescription": "Developed an AI-powered Gmail autoresponder agent that automatically scans incoming emails and generates contextually appropriate replies using large language models (LLMs). The agent can tailor responses in various tones, including casual, normal, and professional, enhancing communication efficiency. This project demonstrates the application of AI in automating email management and improving user interaction.",
-        "image": "https://github.com/AyaanAsish/Autoresponder-agent.jpg"
+        "images": [{
+          "image":"https://source.unsplash.com/random/800x600",
+          "description": "A screenshot of the Gmail autoresponder agent's interface, showing how it categorizes incoming emails and generates responses based on the content and desired tone."
+        }],
+        "demo": "https://youtu.be/uuJAgXmHvRA?si=2qrw4FkZMpLcvPtV"
       },
       {
         "title": "Chess Game, In Java",
+        "thumbnail": "https://source.unsplash.com/random/800x600",
         "description": "Built a fully functional chess game with engine and LAN play capabilities; with self-made music",
         "detailedDescription": "Developed a comprehensive chess game in Java, featuring a robust game engine capable of handling all standard chess rules and mechanics. The game supports LAN play, allowing users to compete against each other over a local network. Additionally, I composed original music for the game, enhancing the overall user experience. This project highlights my skills in Java programming, game development, and music composition.",
-        "image": "https://github.com/AyaanAsish/Chess.jpg"
+        "images": [{
+          "image":"https://source.unsplash.com/random/800x600",
+          "description": "A screenshot of the chess game interface, showcasing the game board, pieces, and user controls for LAN play."
+        }],
+        "demo": "https://youtu.be/uuJAgXmHvRA?si=2qrw4FkZMpLcvPtV"
       }
     ]
   },
   "achievements": {
+    "showAchievements": true,
     "title": "Achievements",
     "items": [
       {
@@ -78,6 +98,7 @@
     ]
   },
   "experience": {
+    "showExperience": true,
     "title": "Experience",
     "items": [
       {
@@ -102,6 +123,7 @@
     "viewMyWork": "View My Work"
   },
   "education":{
+    "showEducation": true,
     "title": "Education",
     "items": [
       {

@@ -82,6 +82,7 @@ const MainDsk: React.FC<MainProps> = ({containerRef}) => {
             </section>
 
           {/* Projects Section */}
+            {contentData.projects.showProjects && (
             <section
             id="projects"
             className="section-height mb-8 flex flex-col justify-center items-start p-12 shadow-lg"
@@ -114,7 +115,7 @@ const MainDsk: React.FC<MainProps> = ({containerRef}) => {
                       <CardMedia
                         component="img"
                         height="180"
-                        image={p.image}
+                        image={p.thumbnail}
                         alt={`${p.title} image`}
                         sx={{ objectFit: "cover" }}
                       />
@@ -134,9 +135,10 @@ const MainDsk: React.FC<MainProps> = ({containerRef}) => {
                 ))}
               </Grid>
             </div>
-            </section>
+            </section>)}
 
             {/* Education Section */}
+          {contentData.education.showEducation && (
           <section
             id="education"
             className="section-height mb-8 flex flex-col justify-center items-start px-12"
@@ -175,10 +177,11 @@ const MainDsk: React.FC<MainProps> = ({containerRef}) => {
                 ))}
               </div>
             </div>
-          </section>
+          </section>)}
 
           {/* Achievements Section */}
-          <section
+          {contentData.achievements.showAchievements && (
+            <section
             id="achievements"
             className="section-height mb-8 flex flex-col justify-center items-start px-12 bg-[#232526] md:bg-transparent shadow-lg"
           >
@@ -193,9 +196,10 @@ const MainDsk: React.FC<MainProps> = ({containerRef}) => {
                 ))}
               </ul>
             </div>
-          </section>
+          </section>)}
 
           {/* Experience Section */}
+          {contentData.experience.showExperience && (
           <section
             id="experience"
             className="section-height md:mb-8 flex flex-col justify-center items-start px-12"
@@ -216,7 +220,7 @@ const MainDsk: React.FC<MainProps> = ({containerRef}) => {
                 ))}
               </div>
             </div>
-          </section>
+          </section>)}
 
           {/* Connect With Me Section */}
           <section

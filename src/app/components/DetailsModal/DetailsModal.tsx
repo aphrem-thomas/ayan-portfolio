@@ -15,11 +15,17 @@ const DetailsModal = ({
   
   // Combine videos and images into a gallery array
   const galleryItems = [];
+
   if (details?.demo) {
-    galleryItems.push({ type: 'video', src: details.demo });
+    galleryItems.push({ type: 'video', src: details.demo, description:details.detailedDescription || details.description });
   }
-  if (details?.image) {
-    galleryItems.push({ type: 'image', src: details.image });
+  if (details?.images && details.images.length > 0) {
+    details.images.forEach((img: any) => {
+      galleryItems.push({ type: 'image', src: img.image, description: img.description });
+    });
+  }
+  if(!details?.demo && (!details?.images || details.images.length === 0)) {
+    galleryItems.push({ type: 'image', src: details.thumbnail, description: details.detailedDescription || details.description });
   }
 
   const handlePrevious = () => {
@@ -171,7 +177,7 @@ const DetailsModal = ({
           </div>
         )}
         
-        <p className="mb-4">{details.detailedDescription || details.description}</p>
+        <p className="mb-4">{galleryItems[currentIndex]?.description}</p>
       </div>
     </div>  
 </Modal>

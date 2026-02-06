@@ -4,13 +4,13 @@ import contentData from '@/data/content.json';
 const NavBar: React.FC<{activeSection: string, setActiveSection: React.Dispatch<React.SetStateAction<string>>}> = ({activeSection, setActiveSection}) => {
     // Define all sections with their corresponding titles
     const allNavLinks = [
-      { id: "home", title: "Home" },
-      { id: "about", title: "About Me" },
-      { id: "projects", title: "Projects" },
-      { id: "education", title: "Education" },
-      { id: "achievements", title: "Achievements" },
-      { id: "experience", title: "Experience" },
-      { id: "connect", title: "Connect With Me" }
+      { id: "home", title: "Home" , show: true},
+      { id: "about", title: "About Me" , show: true},
+      { id: "projects", title: "Projects" , show: contentData.projects.showProjects},
+      { id: "education", title: "Education" , show: contentData.education.showEducation},
+      { id: "achievements", title: "Achievements" , show: contentData.achievements.showAchievements},
+      { id: "experience", title: "Experience" , show: contentData.experience.showExperience},
+      { id: "connect", title: "Connect With Me" , show: true}
     ];
     
     return (
@@ -27,7 +27,7 @@ const NavBar: React.FC<{activeSection: string, setActiveSection: React.Dispatch<
           backdropFilter: "blur(5px) saturate(180%)",
           WebkitBackdropFilter: "blur(5px) saturate(180%)",
            }}>
-        {allNavLinks.map((link) => (
+        {allNavLinks.filter(link => link.show).map((link) => (
           <a
           key={link.id}
           href={`#${link.id}`}
