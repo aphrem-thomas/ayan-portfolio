@@ -10,8 +10,9 @@ const NavBar: React.FC<{activeSection: string, setActiveSection: React.Dispatch<
       { id: "education", title: "Education" , show: contentData.education.showEducation},
       { id: "achievements", title: "Achievements" , show: contentData.achievements.showAchievements},
       { id: "experience", title: "Experience" , show: contentData.experience.showExperience},
-      { id: "connect", title: "Connect With Me" , show: true}
+      { id: "connect-dsk", title: "Connect With Me" , show: true}
     ];
+    // console.log("NavBar activeSection:", activeSection);
     
     return (
        <div className="fixed right-10 md:flex md:items-center md:justify-center md:h-lvh">
@@ -136,7 +137,7 @@ const NavBar: React.FC<{activeSection: string, setActiveSection: React.Dispatch<
             />
             </svg>
           )}
-          {link.id === "connect" && (
+          {link.id === "connect-dsk" && (
             <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
             <path
               d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"

@@ -300,7 +300,7 @@ const MainMob: React.FC<MainProps> = ({containerRef}) => {
 
           {/* Connect With Me Section */}
           <section
-            id="connect"
+            id="connect-mob"
             className="section-height md:mb-8 flex flex-col justify-center items-start px-12 bg-[#232526] md:rounded-2xl shadow-lg"
           >
               <h2 

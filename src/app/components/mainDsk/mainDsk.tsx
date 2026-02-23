@@ -224,7 +224,7 @@ const MainDsk: React.FC<MainProps> = ({containerRef}) => {
 
           {/* Connect With Me Section */}
           <section
-            id="connect"
+            id="connect-dsk"
             className="section-height mb-8 flex flex-col justify-center items-start px-12 md:rounded-2xl shadow-lg"
           >
             <div className="w-full">

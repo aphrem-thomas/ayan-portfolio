@@ -111,7 +111,7 @@ const ProfileMobile = ({
           <div className="networkingButtons">
             <Button
               variant="contained"
-              href={'#connect'}
+              href={'#connect-mob'}
               sx={{
                 marginTop: "2rem",
                 background: "#60cc87",

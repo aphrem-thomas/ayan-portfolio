@@ -11,11 +11,11 @@ import MainMob from "./components/mainMob/mainMob";
 export default function Home() {
   const sectionIds = contentData.navigation.map(nav => nav.id);
   const navLinks = contentData.navigation;
-
+  let activeSectionTemp = '';
   const heightOffset = 80;
 
 
-  const [activeSection, setActiveSection] = useState<string>("home");
+  const [activeSection, setActiveSection] = useState<string>("");
   const [scrolledPixelDistance, setScrolledPixelDistance] = useState<number>(0);
   const [initialWindowHeight, setInitialWindowHeight] = useState<number>(
     typeof window !== "undefined" ? window.innerHeight : 0
@@ -53,16 +53,19 @@ export default function Home() {
 
   const handleScroll = () => {
     let found = false;
+    const windowInnerHeight = typeof window !== "undefined" ? window.innerHeight : 800;
     for (const id of sectionIds) {
       const section = sectionRefs.current[id];
       if (section) {
          const rect = section.getBoundingClientRect();
         if (
-          rect.top <= window.innerHeight &&
-          rect.bottom >= (window.innerHeight/2)
+          rect.top <= windowInnerHeight &&
+          rect.bottom >= (windowInnerHeight/2)
         ) {
-          if (activeSection !== id) {
+          if (activeSectionTemp !== id) {
+            activeSectionTemp = id;
             setActiveSection(id);
+            console.log("Active section changed to:", id);
           }
           found = true;
           break;
@@ -88,6 +91,8 @@ export default function Home() {
     if (topContainer) {
       topContainer.addEventListener("scroll", topContainerHandleScroll, { passive: true });
     }
+
+    handleScroll();
 
     return () => {
       if (mainContent) {
