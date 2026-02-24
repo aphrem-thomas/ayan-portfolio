@@ -108,7 +108,7 @@ const ProfileMobile = ({
             </h2>
           </div>
 
-          <div className="networkingButtons flex h-[40px] mt-1">
+          <div className="networkingButtons flex h-[40px] mt-1 gap-4 w-10/12">
             <Button
               variant="contained"
               href={'#connect-mob'}
@@ -119,9 +119,10 @@ const ProfileMobile = ({
                 borderRadius: "30px",
                 fontWeight: "bold",
                 fontSize: "14px",
-                marginRight: "1rem",
                 textTransform: "none",
                 fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif",
+                flex: 1,
+                minWidth: 0,
                 "&:hover": {
                   backgroundColor: "#4bbd74",
                   borderColor: "#4bbd74",
@@ -143,6 +144,8 @@ const ProfileMobile = ({
                 fontSize: "12px",
                 textTransform: "none",
                 fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif",
+                flex: 1,
+                minWidth: 0,
                 "&:hover": {
                   color: "#888888",
                 },
