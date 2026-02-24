@@ -85,7 +85,7 @@ const MainMob: React.FC<MainProps> = ({containerRef}) => {
           {/* Projects Section */}
             {contentData.projects.showProjects && (
             <section
-            id="projects"
+            id="projects-mob"
             className="section-height md:mb-8 flex flex-col justify-center items-start p-12 bg-gradient-to-br from-[#232526] to-[#414345] md:bg-transparent shadow-lg"
             >
               <motion.h2 

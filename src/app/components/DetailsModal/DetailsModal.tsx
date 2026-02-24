@@ -64,7 +64,6 @@ const DetailsModal = ({
         className="bg-[#1e1f20] text-white rounded-lg p-6 2xl:p-10 md:mx-4 relative w-full h-full md:w-[50vw] md:max-h-[80vh] overflow-y-auto"
         style={{
           boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
-          border: "1.5px solid rgba(255, 255, 255, 0.15)",
         }}
       >
         <div className="w-full flex justify-end">

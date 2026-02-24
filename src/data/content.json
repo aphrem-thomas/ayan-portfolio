@@ -120,8 +120,9 @@
   },
   "buttons": {
     "connect": "Let's Connect",
-    "connectWithMe": "Connect with Me",
-    "viewMyWork": "View My Work"
+    "connectWithMe": "Connect",
+    "viewMyWork": "View My Work",
+    "viewProjects": "My Projects"
   },
   "education":{
     "showEducation": true,

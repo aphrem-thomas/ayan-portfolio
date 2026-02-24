@@ -65,7 +65,6 @@ export default function Home() {
           if (activeSectionTemp !== id) {
             activeSectionTemp = id;
             setActiveSection(id);
-            console.log("Active section changed to:", id);
           }
           found = true;
           break;
@@ -130,9 +129,9 @@ export default function Home() {
       <div className="hidden md:block w-full"><MainDsk containerRef={mainContentRef}/></div>
       <div className="md:hidden w-full"><MainMob containerRef={mainContentRef}/></div>
       {/* Navigation Section (least space) */}
-      {/* {isScrolledDoubleHeight && <div className="md:hidden">
+      {isScrolledDoubleHeight && <div className="md:hidden">
         <NavBar activeSection={activeSection} setActiveSection={setActiveSection}/>
-      </div>} */}
+      </div>}
       <div className="hidden md:flex">
         <NavBar activeSection={activeSection} setActiveSection={setActiveSection}/>
       </div>

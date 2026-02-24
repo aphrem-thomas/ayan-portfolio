@@ -108,19 +108,19 @@ const ProfileMobile = ({
             </h2>
           </div>
 
-          <div className="networkingButtons">
+          <div className="networkingButtons flex h-[40px] mt-1 w-4/5">
             <Button
               variant="contained"
               href={'#connect-mob'}
               sx={{
-                marginTop: "2rem",
                 background: "#60cc87",
                 color: "#1c1c1c",
                 border: "1.5px solid #60cc87",
                 borderRadius: "30px",
                 fontWeight: "bold",
-                width: "100%",
-                fontSize: "1.1rem",
+                fontSize: "14px",
+                marginRight: "1rem",
+                textTransform: "none",
                 fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif",
                 "&:hover": {
                   backgroundColor: "#4bbd74",
@@ -130,6 +130,25 @@ const ProfileMobile = ({
               }}
             >
               {contentData.buttons.connectWithMe}
+              <img src="/right-up.png" alt="arrow" style={{ marginLeft: "0.5rem", height:"100%"}} />
+            </Button>
+            <Button
+              variant="outlined"
+              href={'#projects-mob'}
+              sx={{
+                color: "#888888",
+                border: "1.5px solid #888888",
+                borderRadius: "30px",
+                fontWeight: "bold",
+                fontSize: "12px",
+                textTransform: "none",
+                fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif",
+                "&:hover": {
+                  color: "#888888",
+                },
+              }}
+            >
+              {contentData.buttons.viewProjects}
             </Button>
           </div>
         </div>
