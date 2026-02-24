@@ -108,7 +108,7 @@ const ProfileMobile = ({
             </h2>
           </div>
 
-          <div className="networkingButtons flex h-[40px] mt-1 w-4/5">
+          <div className="networkingButtons flex h-[40px] mt-1">
             <Button
               variant="contained"
               href={'#connect-mob'}
