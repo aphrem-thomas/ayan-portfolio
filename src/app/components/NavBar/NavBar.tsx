@@ -1,29 +1,38 @@
-import React from 'react';
+
+'use client';
+import React, { useState, useEffect } from 'react';
 import contentData from '@/data/content.json';
 
 const NavBar: React.FC<{activeSection: string, setActiveSection: React.Dispatch<React.SetStateAction<string>>}> = ({activeSection, setActiveSection}) => {
+    
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []); 
+
     // Define all sections with their corresponding titles
     const allNavLinks = [
-      { id: "home", title: "Home" , show: true},
-      { id: "about", title: "About Me" , show: true},
-      { id: "projects", title: "Projects" , show: contentData.projects.showProjects},
-      { id: "education", title: "Education" , show: contentData.education.showEducation},
-      { id: "achievements", title: "Achievements" , show: contentData.achievements.showAchievements},
-      { id: "experience", title: "Experience" , show: contentData.experience.showExperience},
-      { id: "connect-dsk", title: "Connect With Me" , show: true}
+      { id: `home${isMobile ? "-mob" : ""}`, title: "Home" , show: true},
+      { id: `about${isMobile ? "-mob" : ""}`, title: "About Me" , show: !isMobile},
+      { id: `projects${isMobile ? "-mob" : ""}`, title: "Projects" , show: contentData.projects.showProjects},
+      { id: `education${isMobile ? "-mob" : ""}`, title: "Education" , show: contentData.education.showEducation},
+      { id: `achievements${isMobile ? "-mob" : ""}`, title: "Achievements" , show: contentData.achievements.showAchievements},
+      { id: `experience${isMobile ? "-mob" : ""}`, title: "Experience" , show: contentData.experience.showExperience},
+      { id: `connect${isMobile ? "-mob" : ""}`, title: "Connect With Me" , show: true}
     ];
     // console.log("NavBar activeSection:", activeSection);
     
     return (
-       <div className="fixed right-10 md:flex md:items-center md:justify-center md:h-lvh">
+       <div className="navbar-container w-full md:w-auto fixed bottom-2 md:right-10 flex md:items-center justify-center md:h-lvh">
         <div className="flex md:flex-col gap-6 p-4  md:w-[60px] md:py-8 md:px-2 z-20 rounded-4xl border border-white/50 items-center justify-center" style={{ 
-          borderWidth: "0.5px",
+          borderWidth: isMobile? "unset" : "0.5px",
           transition: "transform 700ms cubic-bezier(.2,.9,.35,1), box-shadow 300ms ease",
           transform:  "translateY(-20px)",
           animation: "profile-bounce 2000ms ease-in-out infinite" ,
           WebkitAnimation: "profile-bounce 2000ms ease-in-out infinite" ,
-          border: "1.5px solid rgba(255,255,255,0.25)",
-          boxShadow: "0 4px 32px 0 rgba(60,220,135,0.10)",
+          border: isMobile ? "unset" : "1.5px solid rgba(255,255,255,0.25)",
+          boxShadow: isMobile ? "unset" : "0 4px 32px 0 rgba(60,220,135,0.10)",
           background: "rgba(255,255,255,0.10)",
           backdropFilter: "blur(5px) saturate(180%)",
           WebkitBackdropFilter: "blur(5px) saturate(180%)",
@@ -43,7 +52,7 @@ const NavBar: React.FC<{activeSection: string, setActiveSection: React.Dispatch<
           }`}
           style={{ fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif" }}
           >
-          {link.id === "home" && (
+          {(link.id === "home"|| link.id === "home-mob") && (
             <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
             <path
               d="M3 10.5L12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-5h-6v5H4a1 1 0 0 1-1-1V10.5z"
@@ -53,7 +62,7 @@ const NavBar: React.FC<{activeSection: string, setActiveSection: React.Dispatch<
             />
             </svg>
           )}
-          {link.id === "about" && (
+          {(link.id === "about" || link.id === "about-mob") && (
             <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
             <circle
               cx="12"
@@ -69,7 +78,7 @@ const NavBar: React.FC<{activeSection: string, setActiveSection: React.Dispatch<
             />
             </svg>
           )}
-          {link.id === "projects" && (
+          {(link.id === "projects" || link.id === "projects-mob") && (
             <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
             <rect
               x="3"
@@ -87,7 +96,7 @@ const NavBar: React.FC<{activeSection: string, setActiveSection: React.Dispatch<
             />
             </svg>
           )}
-          {link.id === "education" && (
+          {(link.id === "education" || link.id === "education-mob") && (
             <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
             <path
               d="M12 3L2 8l10 5 10-5-10-5z"
@@ -103,7 +112,7 @@ const NavBar: React.FC<{activeSection: string, setActiveSection: React.Dispatch<
             />
             </svg>
           )}
-          {link.id === "achievements" && (
+          {(link.id === "achievements" || link.id === "achievements-mob") && (
             <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
             <circle
               cx="12"
@@ -119,7 +128,7 @@ const NavBar: React.FC<{activeSection: string, setActiveSection: React.Dispatch<
             />
             </svg>
           )}
-          {link.id === "experience" && (
+          {(link.id === "experience" || link.id === "experience-mob") && (
             <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
             <rect
               x="3"
@@ -137,7 +146,7 @@ const NavBar: React.FC<{activeSection: string, setActiveSection: React.Dispatch<
             />
             </svg>
           )}
-          {link.id === "connect-dsk" && (
+          {(link.id === "connect" || link.id === "connect-mob") && (
             <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
             <path
               d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"

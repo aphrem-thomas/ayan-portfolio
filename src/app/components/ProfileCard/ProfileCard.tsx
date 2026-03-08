@@ -144,7 +144,7 @@ const ProfileCard = ({
             <div className="hireMeButton w-full">
               <Button
                 variant="contained"
-                href={'#connect-dsk'}
+                href={'#connect'}
                 sx={{
                   background: "#60cc87",
                   color: "#1c1c1c",

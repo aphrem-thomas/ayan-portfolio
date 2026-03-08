@@ -24,6 +24,8 @@ export default function Home() {
   const [scrolledViewHeight, setScrolledViewHeight] = useState<boolean>(false);  
   const [isScrolledDoubleHeight, setIsScrolledDoubleHeight] = useState(false);
 
+  const isMobile = typeof window !== "undefined" ? window.innerWidth < 768 : false;
+
   useEffect(() => {
     const handleResize = () => {
       setInitialWindowHeight(window.innerHeight);
@@ -55,23 +57,23 @@ export default function Home() {
     let found = false;
     const windowInnerHeight = typeof window !== "undefined" ? window.innerHeight : 800;
     for (const id of sectionIds) {
-      const section = sectionRefs.current[id];
+      const section = isMobile ? sectionRefs.current[`${id}-mob`] : sectionRefs.current[id];
       if (section) {
          const rect = section.getBoundingClientRect();
         if (
           rect.top <= windowInnerHeight &&
           rect.bottom >= (windowInnerHeight/2)
         ) {
-          if (activeSectionTemp !== id) {
-            activeSectionTemp = id;
-            setActiveSection(id);
+          if (activeSectionTemp !== id && activeSectionTemp !== `${id}-mob`) {
+            activeSectionTemp = isMobile ? `${id}-mob` : id;
+            setActiveSection(isMobile ? `${id}-mob` : id);
           }
           found = true;
           break;
         }
       }
     }
-    if (!found) setActiveSection(sectionIds[0]);
+    if (!found) setActiveSection(isMobile ? `${sectionIds[0]}-mob` : sectionIds[0]);
   };
 
   const mainContentRef = useRef<HTMLDivElement>(null);
@@ -79,7 +81,11 @@ export default function Home() {
 
   useEffect(() => {
     sectionIds.forEach((id) => {
-      sectionRefs.current[id] = document.getElementById(id);
+      if (isMobile) {
+        sectionRefs.current[`${id}-mob`] = document.getElementById(`${id}-mob`);
+      } else {
+        sectionRefs.current[id] = document.getElementById(id);
+      }
     });
     const mainContent = mainContentRef.current;
     if (mainContent) {
@@ -129,7 +135,7 @@ export default function Home() {
       <div className="hidden md:block w-full"><MainDsk containerRef={mainContentRef}/></div>
       <div className="md:hidden w-full"><MainMob containerRef={mainContentRef}/></div>
       {/* Navigation Section (least space) */}
-      {isScrolledDoubleHeight && <div className="md:hidden">
+      {activeSection !== 'home-mob' && activeSectionTemp !== 'about-mob' && <div className="md:hidden">
         <NavBar activeSection={activeSection} setActiveSection={setActiveSection}/>
       </div>}
       <div className="hidden md:flex">

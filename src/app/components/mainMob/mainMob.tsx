@@ -31,7 +31,7 @@ const MainMob: React.FC<MainProps> = ({containerRef}) => {
         >
           {/* Home Section */}
             <section
-              id="home"
+              id="home-mob"
               className="homeSection md:hidden section-height flex flex-col justify-center items-start px-12 shadow-lg"
               style={{
                 background: "linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, #232526 100%)",
@@ -67,7 +67,7 @@ const MainMob: React.FC<MainProps> = ({containerRef}) => {
 
           {/* About Me Section desktop only
             <section
-            id="about"
+            id="about-mob"
             className="section-height md:mb-8 flex flex-col justify-center items-start px-12 shadow-lg"
             >
             <h2 className="text-4xl font-bold mb-4" style={{ color: ACCENT_COLOR }}>About Me</h2>
@@ -155,7 +155,7 @@ const MainMob: React.FC<MainProps> = ({containerRef}) => {
             {/* Education Section */}
           {contentData.education.showEducation && (
           <section
-            id="education"
+            id="education-mob"
             className="section-height flex flex-col justify-center items-start p-12 bg-[#232526]"
           >
             <div
@@ -220,7 +220,7 @@ const MainMob: React.FC<MainProps> = ({containerRef}) => {
           {/* Achievements Section */}
           {contentData.achievements.showAchievements && (
           <section
-            id="achievements"
+            id="achievements-mob"
             className="section-height md:mb-8 flex flex-col justify-center items-start px-12 bg-[#232526] md:bg-transparent shadow-lg"
           >
             <div
@@ -252,7 +252,7 @@ const MainMob: React.FC<MainProps> = ({containerRef}) => {
           {/* Experience Section */}
           {contentData.experience.showExperience && (
           <section
-            id="experience"
+            id="experience-mob"
             className="section-height md:mb-8 flex flex-col justify-center items-start px-12 bg-gradient-to-br from-[#232526] to-[#414345] md:rounded-2xl shadow-lg"
           >
             <div

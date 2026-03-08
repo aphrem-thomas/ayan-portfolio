@@ -16,8 +16,7 @@
     { "id": "education", "title": "Education" },
     { "id": "achievements", "title": "Achievements" },
     { "id": "experience", "title": "Experience" },
-    { "id": "connect-dsk", "title": "Connect With Me" },
-    { "id": "connect-mob", "title": "Connect With Me" }
+    { "id": "connect", "title": "Connect With Me" }
   ],
   "home": {
     "greeting": "Hi there,",
