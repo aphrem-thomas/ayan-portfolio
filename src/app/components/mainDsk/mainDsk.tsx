@@ -71,13 +71,25 @@ const MainDsk: React.FC<MainProps> = ({containerRef}) => {
             >
             <h2 className="text-6xl font-bold mb-4" style={{ color: ACCENT_COLOR }}>About Me</h2>
             <p data-aos="fade-left" className="text-white text-lg mb-4 max-w-xl">
-              I’m a developer with a background in aerospace engineering. My journey began with curiosity about flight and technology, leading me to combine both passions in innovative projects. I enjoy collaborating, learning, and solving real-world problems through code.
+                I'm a developer with a background in aerospace engineering. My journey began with curiosity about flight and technology, leading me to combine both passions in innovative projects. I enjoy collaborating, learning, and solving real-world problems through code.
             </p>
             <ul data-aos="fade-left" className="list-disc pl-6 text-white">
-              <li>React, Next.js, TypeScript, Node.js</li>
-              <li>UI/UX Design & Prototyping</li>
-              <li>Cloud & DevOps Enthusiast</li>
-              <li>Open Source Contributor</li>
+            <li>Technical Skills
+              <ul data-aos="fade-left" className="list-disc pl-6 text-white">
+                <li>Programming languages - Python, Java, C/C++, Scratch</li>
+                <li>AI agent development</li>
+                <li>Web Application development - Node.js, HTML, CSS</li>
+                <li>Robotics - CAD, Arduino, Electronic circuitry</li>
+              </ul>
+            </li>
+            <li>Soft Skills
+              <ul data-aos="fade-left" className="list-disc pl-6 text-white">
+                <li>Leadership</li>
+                <li>Public speaking</li>
+                <li>Curiosity & adaptability</li>
+                <li>Strategic thinking</li>
+              </ul>
+            </li>
             </ul>
             </section>
 
@@ -235,12 +247,12 @@ const MainDsk: React.FC<MainProps> = ({containerRef}) => {
               e.preventDefault(); 
               const formData = new FormData(e.currentTarget);
               const googleFormData = new FormData();
-              googleFormData.append('entry.219776786', formData.get('name') as string);
-              googleFormData.append('entry.413775452', formData.get('phone') as string);
-              googleFormData.append('entry.1226142718', formData.get('email') as string);
-              googleFormData.append('entry.539297120', formData.get('message') as string);
-              
-              fetch('https://docs.google.com/forms/d/e/1FAIpQLSfLDvQcy6Vr5VKwxiwYFn7A1CnMmAc4MO3mVEXdy4PEZGAkXw/formResponse', {
+                  googleFormData.append('entry.1807935099', formData.get('name') as string);
+                  googleFormData.append('entry.1968075380', formData.get('phone') as string);
+                  googleFormData.append('entry.1215369255', formData.get('email') as string);
+                  googleFormData.append('entry.2146059317', formData.get('message') as string);
+
+                  fetch('https://docs.google.com/forms/u/1/d/e/1FAIpQLSfyO47nIFCHXbqYt-tmmnvuQ4_UC2vdnhF8lhuexzDn9X1PFg/formResponse?pli=1', {
                 method: 'POST',
                 mode: 'no-cors',
                 body: googleFormData

@@ -3,7 +3,7 @@
     "name": "Ayaan",
     "lastName": "Asish",
     "title": "Aerospace",
-    "subtitle": "enthusiast",
+    "subtitle": "Enthusiast",
     "email": "",
     "school": "Student at WCSS Ottawa",
     "github": "https://github.com/AyaanAsish",
@@ -60,18 +60,18 @@
           "image":"https://source.unsplash.com/random/800x600",
           "description": "A screenshot of the Gmail autoresponder agent's interface, showing how it categorizes incoming emails and generates responses based on the content and desired tone."
         }],
-        "demo": "https://youtu.be/uuJAgXmHvRA?si=2qrw4FkZMpLcvPtV"
+        "demo": "https://github.com/AyaanAsish/Autoresponder-agent"
       },
       {
         "title": "Chess Game, In Java",
-        "thumbnail": "https://source.unsplash.com/random/800x600",
+        "thumbnail": "/Chess.png",
         "description": "Built a fully functional chess game with engine and LAN play capabilities; with self-made music",
         "detailedDescription": "Developed a comprehensive chess game in Java, featuring a robust game engine capable of handling all standard chess rules and mechanics. The game supports LAN play, allowing users to compete against each other over a local network. Additionally, I composed original music for the game, enhancing the overall user experience. This project highlights my skills in Java programming, game development, and music composition.",
         "images": [{
-          "image":"https://source.unsplash.com/random/800x600",
+          "image":"/Chess.png",
           "description": "A screenshot of the chess game interface, showcasing the game board, pieces, and user controls for LAN play."
         }],
-        "demo": "https://youtu.be/uuJAgXmHvRA?si=2qrw4FkZMpLcvPtV"
+        "demo": "https://github.com/AyaanAsish/Chess"
       }
     ]
   },
@@ -114,8 +114,8 @@
     ]
   },
   "mobile": {
-    "salutation": "hi, I am a high school student and \n an aerospace enthusiast",
-    "punchline": "Aiming for the skis, with today's tech in mind"
+    "salutation": "Hi, I am a high school student and \n an aerospace enthusiast",
+    "punchline": "Aiming for the skies, with today's tech in mind"
   },
   "buttons": {
     "connect": "Let's Connect",
@@ -140,30 +140,9 @@
         "fieldOfStudy": "Aerospace Engineering",
         "period": "2022",
         "description": "Completed a comprehensive rocketry course covering design, construction, and launch of model rockets."
-      },  
+      },
       {
         "degree": "STEM Workshops",
-        "institution": "Various Organizations",
-        "fieldOfStudy": "Science and Technology",
-        "period": "2021 - 2023",
-        "description": "Participated in multiple workshops and seminars focused on advancements in STEM fields."
-      },
-      {
-        "degree": "High School Diploma -2",
-        "institution": "West Carleton Secondary School",
-        "fieldOfStudy": "General Studies",
-        "period": "2020 - Present",
-        "description": "Focusing on STEM subjects with extracurricular involvement in aerospace and technology clubs."
-      },
-      {
-        "degree": "Rocketry Course 2",
-        "institution": "706 Snowy Owl Squadron",
-        "fieldOfStudy": "Aerospace Engineering",
-        "period": "2022",
-        "description": "Completed a comprehensive rocketry course covering design, construction, and launch of model rockets."
-      },  
-      {
-        "degree": "STEM Workshops 2",
         "institution": "Various Organizations",
         "fieldOfStudy": "Science and Technology",
         "period": "2021 - 2023",
