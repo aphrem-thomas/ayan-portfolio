@@ -53,11 +53,11 @@
       },
       {
         "title": "Gmail Autoresponder Agent",
-        "thumbnail": "https://source.unsplash.com/random/800x600",
+        "thumbnail": "https://opengraph.githubassets.com/afdsfas/AyaanAsish/Autoresponder-agent",
         "description": "Ability to find and reply to emails with LLM auto-generated responses with casual, normal and proffesional tones",
         "detailedDescription": "Developed an AI-powered Gmail autoresponder agent that automatically scans incoming emails and generates contextually appropriate replies using large language models (LLMs). The agent can tailor responses in various tones, including casual, normal, and professional, enhancing communication efficiency. This project demonstrates the application of AI in automating email management and improving user interaction.",
         "images": [{
-          "image":"https://source.unsplash.com/random/800x600",
+          "image":"https://opengraph.githubassets.com/afdsfas/AyaanAsish/Autoresponder-agent",
           "description": "A screenshot of the Gmail autoresponder agent's interface, showing how it categorizes incoming emails and generates responses based on the content and desired tone."
         }],
         "demo": "https://github.com/AyaanAsish/Autoresponder-agent"

@@ -101,7 +101,7 @@ const DetailsModal = ({
                 {galleryItems.map((item, index) => (
                   <div key={index} className="min-w-full flex-shrink-0">
                     {item.type === 'video' ? (
-                      <div className="relative w-full" style={{ height: "100%" }}>
+                      <div className="relative w-full" style={{ minHeight: "360px" }}>
                         <iframe
                           className="absolute top-0 left-0 w-full h-full rounded"
                           src={`https://www.youtube.com/embed/${item.src.split('v=')[1]?.split('&')[0] || item.src.split('/').pop()}`}
@@ -112,11 +112,20 @@ const DetailsModal = ({
                         />
                       </div>
                     ) : (
+                      <>
                       <img
                         src={item.src}
                         alt={`${details.title} - ${index + 1}`}
-                        className="rounded w-full h-auto object-scale-down"
+                        className="rounded w-full h-auto object-scale-down hidden md:block"
+                        style={{width:'calc(50vw - 6*0.25rem)'}}
                       />
+                      <img
+                        src={item.src}
+                        alt={`${details.title} - ${index + 1}`}
+                        className="rounded w-full h-auto object-scale-down md:hidden"
+                        style={{width:'calc(100vw - 6*0.25rem)'}}
+                      />
+                      </>
                     )}
                   </div>
                 ))}
